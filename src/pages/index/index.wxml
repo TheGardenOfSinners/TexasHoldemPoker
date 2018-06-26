@@ -1,0 +1,48 @@
+<!--index.wxml-->
+<!-- import templates -->
+
+    <view id = "out-border">
+       <view id = "public-cards">
+           <view id = "flop1" class="poker"></view>
+           <view id="flop2" class="poker"></view>
+           <view id="flop3" class="poker"></view>
+           <view id="turn" class="poker"></view>
+           <view id="river" class="poker"></view>
+       </view>
+       <view id="p1" class="player">
+           <view id="p11" class="poker"></view>
+           <view id="p12" class="poker"></view>
+       </view>
+        <view id="p2" class="player">
+            <view id="p21" class="poker"></view>
+            <view id="p22" class="poker"></view>
+        </view>
+        <view id="p3" class="player">
+            <view id="p31" class="poker"></view>
+            <view id="p32" class="poker"></view>
+        </view>
+        <view id="p4" class="player">
+            <view id="p41" class="poker"></view>
+            <view id="p42" class="poker"></view>
+        </view>
+        <view id="p5" class="player">
+            <view id="p51" class="poker"></view>
+            <view id="p52" class="poker"></view>
+        </view>
+        <view id="p6" class="player">
+            <view id="p61" class="poker"></view>
+            <view id="p62" class="poker"></view>
+        </view>
+        <view id="p7" class="player">
+            <view id="p71" class="poker"></view>
+            <view id="p72" class="poker"></view>
+        </view>
+        <view id="p8" class="player">
+            <view id="p81" class="poker"></view>
+            <view id="p82" class="poker"></view>
+        </view>
+        <view id="p9" class="player">
+            <view id="p91" class="poker"></view>
+            <view id="p92" class="poker"></view>
+        </view>
+    </view>

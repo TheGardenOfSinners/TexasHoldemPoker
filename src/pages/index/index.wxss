@@ -1,0 +1,145 @@
+
+
+#out-border {
+    background-color: rgb(0,70,55);
+    width: 750rpx;
+    height: 1500rpx;
+}
+
+#public-cards {
+    width: 4rpx;
+    height: 6rpx;
+    border-width : 2px 0px;
+    border-color : white;
+    border-style : solid;
+    position : absolute;
+    top : 338px;
+    left : 553px;
+}
+
+.poker {
+    width: 48rpx;
+    height: 72rpx;
+    background-color: white;
+    border-width : 1rpx;
+    border-color : black;
+    border-style : solid;
+    background-image : url("../../image/poker-back.jpg");
+    position : absolute;
+    top : 0px;
+}
+
+#flop1 {
+    left : 0;
+}
+
+#flop2 {
+    left : 20%;
+}
+
+#flop3 {
+    left : 40%;
+}
+
+#turn {
+    left : 60%;
+}
+
+#river {
+    left : 80%;
+}
+
+.main-box {
+    width : 472px;
+    height : 637px;
+    border-width : 1px;
+    border-color : #AF03CD;
+    border-style : solid;
+    border-radius : 20px;
+    position : absolute;
+    margin : 0 auto;
+    overflow : hidden;
+    background-color : rgb(2, 0, 100);
+}
+
+.input-box {
+    left : 5%;
+    top : 5%;
+    width : 90%;
+    height : 65px;
+    border-width : 1px;
+    border-color : #AFAFAF;
+    border-style : solid;
+    position : absolute;
+    overflow: hidden;
+}
+
+#input-box {
+    position : absolute;
+    right : 0;
+    top : 0;
+    width : 100%;
+    height : 65px;
+    text-align : right;
+    font-family : 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size : 40px;
+    overflow : hidden
+}
+
+
+
+
+input.b {
+    font-family : 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size : 40px;
+    width : 101.25px;
+    height : 81.25px;
+    position : absolute;
+    text-align : center;
+}
+
+.b1 {
+    top : 130px;
+    cursor:pointer;
+}
+
+.b2 {
+    top : 230px;
+    cursor:pointer;
+}
+.b3 {
+    top : 330px;
+    cursor:pointer;
+}
+
+.b4 {
+    top : 430px;
+    cursor:pointer;
+}
+.b5 {
+    top : 530px;
+    cursor:pointer;
+    background-color : rgb(144, 144, 144);
+}
+
+.l4 {
+    left : 345.75px;
+    background-color : rgb(144, 144, 144);
+    font-weight : bold;
+}
+
+.ewai {
+    background-color : rgb(144, 144, 144);
+}
+
+.l3 {
+    left : 238.5px;
+}
+
+.l1{
+    left : 25px;
+}
+
+.l2 {
+    left : 131.25px;
+}
