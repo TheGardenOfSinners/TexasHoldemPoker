@@ -101,6 +101,11 @@ const pokerCanshu = {
   suitNameArray: ["◆", "♣", "♥", "♠"]
 }
 
+
+/**
+ * 封装的一个类
+ * 扑克类
+ */
 var Poker = {
   createNew: function () {
   　var poker = {};
@@ -164,6 +169,9 @@ var Poker = {
   }
 };
 
+/**
+ * 传出参数
+ */
 module.exports = {
   Poker: Poker,
   pokerCanshu: pokerCanshu,

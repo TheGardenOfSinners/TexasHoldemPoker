@@ -1,6 +1,7 @@
 
 
 /**
+ * 封装的一个类：
  * 发牌员的卡池类
  */
 var PokerPool = {
@@ -74,6 +75,9 @@ var PokerPool = {
   }
 }
 
+/**
+ * 可传出参数
+ */
 module.exports = {
   PokerPool: PokerPool,
 }
