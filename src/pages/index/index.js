@@ -1,5 +1,6 @@
-const app = getApp()
-
+const app = getApp();
+var poker = require("../../objects/poker.js");
+var pokerpool = require("../../objects/pokerpool.js");
 Page({
 
   /**
@@ -14,7 +15,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    
+    var newPool = pokerpool.PokerPool.createNew();
+    this.setData({PokerPool : newPool});
   },
 
   /**
@@ -64,5 +66,12 @@ Page({
    */
   onShareAppMessage: function () {
     
+  },
+  
+  /**
+   * 初始化数据
+   */
+  initialData: function () {
+    this.initial
   }
 })
