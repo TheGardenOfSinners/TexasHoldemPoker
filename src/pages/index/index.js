@@ -8,7 +8,7 @@ Page({
    */
   data: {
     cardsuit: "♥",
-    cardnum: "10"
+    cardnum: "10",
   },
 
   /**
@@ -72,6 +72,5 @@ Page({
    * 初始化数据
    */
   initialData: function () {
-    this.initial
   }
 })
