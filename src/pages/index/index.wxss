@@ -17,16 +17,37 @@
     left : 553px;
 }
 
+.hpoker {
+    width: 48rpx;
+    height: 36rpx;
+    background-color: white;
+    font-size: 35rpx;
+    text-align:center;
+    border: none;
+    position : absolute;
+    top: -5rpx;
+}
+
+.lpoker {
+    width: 48rpx;
+    height: 36rpx;
+    background-color: white;
+    font-size: 39rpx;
+    text-align:center;
+    border: none;
+    position : absolute;
+    top: 31rpx;
+}
+
 .poker {
     width: 48rpx;
     height: 72rpx;
     background-color: white;
+    font-size: 37rpx;
     border-width : 1rpx;
     border-color : black;
     border-style : solid;
-    background-image : url("../../image/poker-back.jpg");
     position : absolute;
-    top : 0px;
 }
 
 #flop1 {

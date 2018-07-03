@@ -1,11 +1,24 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/rules/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#4a225d",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "计算器"
+      },
+      {
+        "pagePath": "pages/rules/index",
+        "text": "规则"
+      }
+    ]
   }
 }
