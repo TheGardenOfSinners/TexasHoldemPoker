@@ -3,7 +3,7 @@
     <view id = "out-border">
        <view id = "public-cards">
            <view id = "flop1" class="poker">
-             <view class="hpoker">{{cardnumF1}}</view>
+             <view class="hpoker">{{cardnum}}</view>
              <view class="lpoker">{{cardsuit}}</view>
            </view>
            <view id="flop2" class="poker">

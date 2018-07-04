@@ -109,38 +109,45 @@ const pokerCanshu = {
 var Poker = {
   createNew: function () {
   　var poker = {};
+
     /**
      * 扑克的花色初始化为空
      */       
     poker.suit = pokerCanshu.NODATA;
+
     /**
      * 扑克的点数初始化为空
      */
     poker.figure = pokerCanshu.NODATA;
+
     /**
      * 设置花色
      */
     poker.setSuit = function (suit1) {
       poker.suit = suit1;
     }
+
     /**
      * 设置点数
      */
     poker.setFigure = function (figure1) {
       poker.figure = figure1;
     }
+
     /**
      * 获取花色
      */
     poker.getSuit = function () {
       return poker.suit;
     }
+
     /**
      * 获取点数
      */
     poker.getFigure = function () {
       return poker.figure;
     }
+
     /**
      * 判断次类是否为空
      */
@@ -152,19 +159,24 @@ var Poker = {
       else
         return false;
     }
+
     /**
      * 获取花色的字符
      */
     poker.suitToString = function () {
       return pokerCanshu.suitNameArray[poker.suit];
-    };
+    }
+
     /**
      * 获取点数的字符
      */
     poker.figureToString = function () {
       return pokerCanshu.figureNameArray[poker.figure - 1];
     }
-
+    
+    /**
+     * 返回出构造好的对象
+     */
     return poker;
   }
 };

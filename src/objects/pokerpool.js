@@ -7,6 +7,7 @@
 var PokerPool = {
   createNew : function (){
     var pokerPool = {};
+
     /**
      * 初始化卡池数组为空，即全部牌属于可发状态
      */
@@ -15,12 +16,14 @@ var PokerPool = {
     for (i = 0; i < 52;i++) {
       pokerPool.pool[i] = true;
     }
+
     /**
      * 发出某张牌(即此牌变为不可发状态)
      */
     pokerPool.popCardByNum = function(num1) {
       pokerPool.pool[num1] = false;
     }
+
     /**
      * 发出某张牌,输入为花色和点数
      */
@@ -28,12 +31,14 @@ var PokerPool = {
       var tmp = suit1 * 13 + figure - 1;
       pokerPool.pool[tmp] = false;
     }
+
     /**
      * 回收某张牌
      */
     pokerPool.recoveryCardByNum = function(num1) {
       pokerPool.pool[num1] = true;
     }
+
     /**
      * 通过花色和点数回收某张牌
      */
@@ -41,6 +46,7 @@ var PokerPool = {
       var tmp = suit1 * 13 + figure - 1;
       pokerPool.pool[tmp] = true;
     }
+
     /**
      * 回收所有牌
      */
@@ -50,6 +56,7 @@ var PokerPool = {
         pokerPool.pool[tmp] = true;
       }
     }
+
     /**
      * 随机发一张牌
      */
@@ -62,6 +69,7 @@ var PokerPool = {
       var figure1 = tmp % 13 + 1;
       return [suit1, figure1];
     }
+
     /**
      * 测试此牌是否可发
      */
@@ -70,7 +78,9 @@ var PokerPool = {
       return pokerPool.pool[tmp];
     }
 
-
+    /**
+     * 返回这个封装好的对象
+     */
     return pokerPool;
   }
 }

@@ -5,20 +5,12 @@
     height: 1500rpx;
 }
 
-#flop2 {
-  top : 338rpx;
-  left : 553rpx;
-}
-
 #public-cards {
-    width: 4rpx;
-    height: 6rpx;
-    border-width : 2px 0px;
-    border-color : white;
-    border-style : solid;
+    width: 240rpx;
+    height: 36rpx;
     position : absolute;
-    top : 338px;
-    left : 338px;
+    top : 438rpx;
+    left : 338rpx;
 }
 
 .hpoker {
