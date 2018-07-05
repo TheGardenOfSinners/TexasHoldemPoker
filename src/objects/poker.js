@@ -133,6 +133,14 @@ var Poker = {
     poker.setFigure = function (figure1) {
       poker.figure = figure1;
     }
+    
+    /**
+     * 通过编号设置点数和花色
+     */
+    poker.setByNum = function (num1) {
+      poker.suit = Math.floor(num1 / 13);
+      poker.figure = num1 % 13 + 1;
+    }
 
     /**
      * 获取花色

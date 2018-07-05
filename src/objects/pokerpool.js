@@ -16,6 +16,13 @@ var PokerPool = {
     for (i = 0; i < 52;i++) {
       pokerPool.pool[i] = true;
     }
+    
+    /**
+     * 返回卡池
+     */
+    pokerPool.getPool = function() {
+      return pokerPool.pool;
+    }
 
     /**
      * 发出某张牌(即此牌变为不可发状态)
@@ -74,9 +81,17 @@ var PokerPool = {
      * 测试此牌是否可发
      */
     pokerPool.CardIsAvailable = function(suit1,figure1) {
-      var tmp = suit1 * 13 + figure - 1;
+      var tmp = suit1 * 13 + figure1 - 1;
       return pokerPool.pool[tmp];
     }
+
+    /**
+     * 测试此牌是否可发 编号版
+     */
+    pokerPool.CardIsAvailableByNum = function (num) {
+      return pokerPool.pool[num];
+    }
+
 
     /**
      * 返回这个封装好的对象

@@ -1,46 +1,46 @@
 <!--index.wxml-->
 <!-- import templates -->
-    <view id = "out-border">
+
        <view id = "public-cards">
-           <view id = "flop1" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+           <view id = "public1" class="poker" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnumpd[0]}}</view>
+             <view class="lpoker">{{cardsuitpd[0]}}</view>
            </view>
-           <view id="flop2" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+           <view id="public2" class="poker" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnumpd[1]}}</view>
+             <view class="lpoker">{{cardsuitpd[1]}}</view>
            </view>
-           <view id="flop3" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+           <view id="public3" class="poker" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnumpd[2]}}</view>
+             <view class="lpoker">{{cardsuitpd[2]}}</view>
            </view>
-           <view id="turn" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+           <view id="public4" class="poker" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnumpd[3]}}</view>
+             <view class="lpoker">{{cardsuitpd[3]}}</view>
            </view>
-           <view id="river" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+           <view id="public5" class="poker" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnumpd[4]}}</view>
+             <view class="lpoker">{{cardsuitpd[4]}}</view>
            </view>
        </view>
        <view id="p1" class="player">
-           <view id="p11" class="poker leftp">
-             <view class="hpoker">{{cardnum11}}</view>
-             <view class="lpoker">{{cardsuit11}}</view>
+           <view id="p11" class="poker leftp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnumplay[0][0]}}</view>
+             <view class="lpoker">{{cardsuitplay[0][0]}}</view>
            </view>
-           <view id="p12" class="poker rightp">
-             <view class="hpoker">{{cardnum12}}</view>
-             <view class="lpoker">{{cardsuit12}}</view>
+           <view id="p12" class="poker rightp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnumplay[0][1]}}</view>
+             <view class="lpoker">{{cardsuitplay[0][1]}}</view>
            </view>
        </view>
         <view id="p2" class="player">
-            <view id="p21" class="poker leftp">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p21" class="poker leftp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnumplay[1][0]}}</view>
+             <view class="lpoker">{{cardsuitplay[1][0]}}</view>
            </view>
-            <view id="p22" class="poker rightp">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p22" class="poker rightp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnumplay[1][1]}}</view>
+             <view class="lpoker">{{cardsuitplay[1][1]}}</view>
            </view>
         </view>
         <view id="p3" class="player">
@@ -113,7 +113,28 @@
              <view class="lpoker">{{cardsuit}}</view>
            </view>
         </view>
-        <view>
-            
+
+        <view hidden="{{selectpagehide}}" id="selectpage">
+          <view id = "select0" class="poker"  bindtap="selector">
+             <view class="hpoker">A</view>
+             <view class="lpoker">◆</view>
+           </view>
+           <view id="select1" class="poker" bindtap="selector">
+             <view class="hpoker">2</view>
+             <view class="lpoker">◆</view>
+           </view>
+           <view id="select2" class="poker" bindtap="selector">
+             <view class="hpoker">3</view>
+             <view class="lpoker">◆</view>
+           </view>
+           <view id="select3" class="poker" bindtap="selector">
+             <view class="hpoker">4</view>
+             <view class="lpoker">◆</view>
+           </view>
+           <view id="select4" class="poker" bindtap="selector">
+             <view class="hpoker">5</view>
+             <view class="lpoker">◆</view>
+           </view>
         </view>
-    </view>
+
+        
