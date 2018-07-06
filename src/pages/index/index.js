@@ -1,14 +1,20 @@
 const app = getApp();
 var poker = require("../../objects/poker.js");
 var pokerpool = require("../../objects/pokerpool.js");
+
+var poker = require("../../objects/poker.js");
+var pokerpool = require("../../objects/pokerpool.js");
+var cardtype = require("../../objects/cardtype.js");
+var pokerlist = require("../../objects/pokerlist.js");
+var player = require("../../objects/player.js")
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    cardsuit: "♥",
-    cardnum: "10",
+
   },
 
   /**
@@ -16,7 +22,8 @@ Page({
    */
   onLoad: function (options) {
     this.initialData();
-    this.dealer = pokerpool.PokerPool.createNew();
+    this.initialObject();
+    this.testForUs();
   },
 
   /**
@@ -67,12 +74,81 @@ Page({
   onShareAppMessage: function () {
     
   },
+  
+  /**
+   * 供开发人员使用的测试类
+   */
+  testForUs : function() {
+    
+    this.dealer.popCardByNum(13);
+    this.publicCardInPage[0].setByNum(13);
+    console.log(this.publicCardInPage[0].toString());
+    
+    
+    
+    this.dealer.popCardByNum(38);
+    this.publicCardInPage[1].setByNum(38);
+    console.log(this.publicCardInPage[1].toString());
+    
+    
+    
+    this.dealer.popCardByNum(34);
+    this.publicCardInPage[2].setByNum(34);
+    console.log(this.publicCardInPage[2].toString());
+    
+    
+    /*
+    this.dealer.popCardByNum(15);
+    this.publicCardInPage[3].setByNum(15);
+    console.log(this.publicCardInPage[3].toString());
+    */
+
+    /*
+    this.dealer.popCardByNum(16);
+    this.publicCardInPage[4].setByNum(16);
+    console.log(this.publicCardInPage[3].toString());
+    */
+
+    this.allPlayerArray[0].setHand(3,0);
+    this.allPlayerArray[0].setHand(1,1);
+    this.dealer.popCardByNum(3);
+    this.dealer.popCardByNum(1);
+    console.log(this.allPlayerArray[0].getHand(0).toString());
+    console.log(this.allPlayerArray[0].getHand(1).toString());
+    this.allPlayerArray[1].setHand(7, 0);
+    this.allPlayerArray[1].setHand(20, 1);
+    this.dealer.popCardByNum(7);
+    this.dealer.popCardByNum(20);
+    console.log(this.allPlayerArray[1].getHand(0).toString());
+    console.log(this.allPlayerArray[1].getHand(1).toString());
+    var totalTimes = this.counterTimeWhen3([0, 1], this.publicCardInPage, 0);
+    console.log(totalTimes);
+    console.log(this.allPlayerArray[0].getWinCount());
+    console.log(this.allPlayerArray[1].getWinCount());
+    console.log(this.allPlayerArray[0]);
+    console.log(this.allPlayerArray[1]);
+  },
 
   /**
    * 这个程序的发牌员卡池
    * 是pokerpool类
    */
   dealer : {},
+
+  /**
+   * 九个玩家的类
+   */
+  allPlayerArray : [],
+
+  /**
+   * 公共牌已定义张数
+   */
+  alreadyPublicCard : 0,
+
+  /**
+   * 五张公共牌的类
+   */
+  publicCardInPage : [],
   
   /**
    * 初始化交互数据
@@ -98,42 +174,228 @@ Page({
   },
   
   /**
-   * 
+   * 初始化用于计算的页面类
    */
+  initialObject : function() {
+    this.dealer = pokerpool.PokerPool.createNew();
+    for(var i = 0;i < 9; i++) {
+      this.allPlayerArray[i] = player.Player.createNew();
+      if(i < 5)
+        this.publicCardInPage[i] = poker.Poker.createNew();
+    }
+  },
+  
+  /**
+   * 改编扑克类
+   * 传入参数为需要更改的那张牌的编号以及更改的目标
+   */
+  changeCardObject: function(num, cardNum) {
+    
+    if (num < 18) {
+      var num1 = parseInt(num / 2), num2 = num % 2;
+      if (this.allPlayerArray[num1].getHand(num2).isEmpty()) {
+        this.dealer.popCardByNum(cardNum);
+        this.allPlayerArray[num1].setHand(cardNum, num2);
+      } else {
+        var num3 = this.allPlayerArray[num1].getHand(num2).getNum();
+        this.dealer.recoveryCardByNum(num3);
+        this.dealer.popCardByNum(cardNum);
+        this.allPlayerArray[num1].setHand(cardNum, num2);
+      }
+      
+    } else {
+      var tmp = num - 18;
+      if (this.publicCardInPage[tmp].isEmpty()) {
+        this.dealer.popCardByNum(cardNum);
+        this.publicCardInPage[tmp].setByNum(cardNum);
+        this.alreadyPublicCard++;
+        console.log(this.alreadyPublicCard);
+      } else {//把新牌派发之前把旧牌回收
+        var num3 = this.publicCardInPage[tmp].getNum();
+        this.dealer.recoveryCardByNum(num3);
+        this.dealer.popCardByNum(cardNum);
+        this.publicCardInPage[tmp].setByNum(cardNum);
+      }
+    }
+  },
+
+
+  /**
+   * 计算各个玩家的胜率
+   */
+  calculateAllPlayerRate: function() {
+    var participant = new Array();
+    for(var i = 0; i < 9; i++) {
+      allPlayerArray[i].refleshWinCount();
+      if (allPlayerArray[i].isReady)
+        participant.push(i);
+    }
+    var totalTime = 0;
+    switch (this.alreadyPublicCard) {
+      case 0:
+        thitalTime = this.counterTimeWhen0(participant, this.publicCardInPage, 0);
+        break;
+      case 3:
+        thitalTime = this.counterTimeWhen3(participant, this.publicCardInPage, 0);
+        break;
+      case 4:
+        thitalTime = this.counterTimeWhen4(participant, this.publicCardInPage, 0);
+        break;
+      case 5:
+        thitalTime = this.counterTimeWhen5(participant, this.publicCardInPage, 0);
+        break;
+      default:
+        ;
+    }
+
+  },
+
+  /**
+   * 未指定公共牌时的计数器
+   */
+  counterTimeWhen0: function (participant, inputPublic, startNum) {
+    var total = 0;
+    for (var i = startNum; i < 52; i++) {
+      if (this.dealer.CardIsAvailableByNum(i)) {
+        this.dealer.popCardByNum(i);
+        inputPublic[0].setByNum(i);
+        total += this.counterTimeWhen1(participant, inputPublic, i + 1);
+        inputPublic[0].clearItself();
+        this.dealer.recoveryCardByNum(i);
+      }
+    }
+    return total;
+  },
+
+  /**
+   * 一张公共牌时的计数器
+   */
+  counterTimeWhen1: function (participant, inputPublic, startNum) {
+    var total = 0;
+    for (var i = startNum; i < 52; i++) {
+      if (this.dealer.CardIsAvailableByNum(i)) {
+        this.dealer.popCardByNum(i);
+        inputPublic[1].setByNum(i);
+        total += this.counterTimeWhen2(participant, inputPublic, i + 1);
+        inputPublic[1].clearItself();
+        this.dealer.recoveryCardByNum(i);
+      }
+    }
+    return total;
+  },
+
+  /**
+   * 两张公共牌时的计数器
+   */
+  counterTimeWhen2: function (participant, inputPublic, startNum) {
+    var total = 0;
+    for (var i = startNum; i < 52; i++) {
+      if (this.dealer.CardIsAvailableByNum(i)) {
+        this.dealer.popCardByNum(i);
+        inputPublic[2].setByNum(i);
+        total += this.counterTimeWhen3(participant, inputPublic, i + 1);
+        inputPublic[2].clearItself();
+        this.dealer.recoveryCardByNum(i);
+      }
+    }
+    return total;
+  },
+
+  /**
+   * 指定了三张公共牌时的计数器
+   */
+  counterTimeWhen3: function (participant, inputPublic, startNum) {
+    var total = 0;
+    for (var i = startNum; i < 52; i++) {
+      if (this.dealer.CardIsAvailableByNum(i)) {
+        this.dealer.popCardByNum(i);
+        inputPublic[3].setByNum(i);
+        total += this.counterTimeWhen4(participant, inputPublic, i + 1);
+        inputPublic[3].clearItself();
+        this.dealer.recoveryCardByNum(i);
+      }
+    }
+    return total;
+  },
+
+  /**
+   * 指定了四张公共牌时的计数器
+   */
+  counterTimeWhen4: function (participant, inputPublic, startNum) {
+    var total = 0;
+    for (var i = startNum; i < 52; i++) {
+      if (this.dealer.CardIsAvailableByNum(i)) {
+        this.dealer.popCardByNum(i);
+        inputPublic[4].setByNum(i);
+        total += this.counterTimeWhen5(participant, inputPublic, i + 1);
+        inputPublic[4].clearItself();
+        this.dealer.recoveryCardByNum(i);
+      }
+    }
+    return total;
+  },
+
+  /**
+   * 指定了五张公共牌时的计数器
+   */
+  counterTimeWhen5: function (participant, inputPublic) {
+    var nowPokerList = pokerlist.PokerList.createNew();
+    var countTotal = 0;
+    var tmpArray = this.allPlayerArray[participant[0]].getTwoCardWithArray().concat(inputPublic);
+    var winArray = new Array();
+    winArray.push(participant[0]);
+    nowPokerList.setList(tmpArray);
+    for(var i = 1; i < participant.length; i++) {
+      var tmpList = pokerlist.PokerList.createNew();
+      var tmpArray2 = this.allPlayerArray[participant[i]].getTwoCardWithArray().concat(inputPublic);
+      tmpList.setList(tmpArray2);
+      if (tmpList.isBiggerThan(nowPokerList) >= 0) {
+        if (tmpList.isBiggerThan(nowPokerList) == 1) {
+          winArray = new Array();
+        }
+        winArray.push(participant[i]);
+      }
+      for(var i = 0; i < winArray.length; i++) {
+        this.allPlayerArray[winArray[i]].oneMoreWin();
+      }
+    }
+    countTotal++;
+    return countTotal;
+  },
 
   /**
    * 改编扑克外表
-   * 传入参数为需要更改的那张牌的编号
+   * 传入参数为需要更改的那张牌的编号以及更改的目标
    */
-  changeCardShow: function(num) {
+  changeCardShow: function(num, cardNum) {
     if (num < 18) {
       var tmp1 = this.data.cardnumplay, num1 = parseInt(num / 2), num2 = num % 2;
-      console.log(num1);
-      console.log(num2);
-      tmp1[num1][num2] = 10;
+      tmp1[num1][num2] = poker.pokerCanshu.figureNameArrayByNum[cardNum];
       var tmp2 = this.data.cardsuitplay;
-      tmp2[num1][num2] = poker.pokerCanshu.suitNameArray[0];
+      tmp2[num1][num2] = poker.pokerCanshu.suitNameArrayByNum[cardNum];
       this.setData({ cardnumplay: tmp1, cardsuitplay: tmp2 });
-      console.log(this.data);
     } else {
       var tmp = num - 18;
       var tmp1 = this.data.cardnumpd;
       var tmp2 = this.data.cardsuitpd;
-      tmp1[tmp] = 10;
-      tmp2[tmp] = poker.pokerCanshu.suitNameArray[0];
+      tmp1[tmp] = poker.pokerCanshu.figureNameArrayByNum[cardNum];
+      tmp2[tmp] = poker.pokerCanshu.suitNameArrayByNum[cardNum];
       this.setData({ cardnumpd: tmp1, cardsuitpd: tmp2 });
     }
   },
 
   /**
-   * 选择器1
+   * 选择器点击事件
    */
-  selector: function(event) {
-
-    var numToChange = this.data.nowChange;
-    this.changeCardShow(numToChange);
-    
-    this.setData({selectpagehide : true});
+  selector: function(e) {
+    var tmpId = e.currentTarget.id;
+    var tmp = this.whichOneToChange(tmpId);
+    if (this.dealer.CardIsAvailableByNum(tmp)) {
+      var numToChange = this.data.nowChange;
+      this.changeCardShow(numToChange, tmp);
+      this.changeCardObject(numToChange, tmp);
+      this.setData({ selectpagehide: true });
+    }
   },
 
   /**
@@ -141,13 +403,14 @@ Page({
    */
   playCardevent: function (e) {
     var tmpid = e.currentTarget.id;
-    console.log(e);
-    console.log(e.currentTarget.class);
     var tmp = this.whichOneToChange(tmpid);
-    this.setData({
-      selectpagehide: !this.data.selectpagehide,
-      nowChange: tmp,
-    });
+    if (tmp - 18 <= this.alreadyPublicCard) {//此部目的为 让公共牌按顺序指定，不可越过去
+      this.setData({
+        selectpagehide: !this.data.selectpagehide,
+        nowChange: tmp,
+      });
+    }  
+    
   },
 
   /**
@@ -158,7 +421,7 @@ Page({
       var tmp = 17 + parseInt(inputId[6]);
       return tmp;
     } else if (inputId[0] == 's'){
-      var tmp = 10 * parseInt(inputId[6]) + parseInt(inputId[7]);
+      var tmp = parseInt(inputId.substring(6,inputId.length));
       return tmp;
     } else{
       var tmp1 = parseInt(inputId[1]);

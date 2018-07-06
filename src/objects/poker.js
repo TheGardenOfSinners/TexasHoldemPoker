@@ -98,7 +98,27 @@ const pokerCanshu = {
   /**
    * 扑克花色对应的字符编码
    */
-  suitNameArray: ["◆", "♣", "♥", "♠"]
+  suitNameArray: ["◆", "♣", "♥", "♠"],
+
+  /**
+   * 扑克编号对应的点数字符
+   */
+  figureNameArrayByNum : [
+    "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+    "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+    "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K",
+    "A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"
+  ],
+
+  /**
+   * 扑克编号对应的花色字符
+   */
+  suitNameArrayByNum: [
+    "◆", "◆", "◆", "◆", "◆", "◆", "◆", "◆", "◆", "◆", "◆", "◆", "◆",
+    "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣", "♣",
+    "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥", "♥",
+    "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠", "♠"
+  ],
 }
 
 
@@ -138,7 +158,7 @@ var Poker = {
      * 通过编号设置点数和花色
      */
     poker.setByNum = function (num1) {
-      poker.suit = Math.floor(num1 / 13);
+      poker.suit = parseInt(num1 / 13);
       poker.figure = num1 % 13 + 1;
     }
 
@@ -154,6 +174,13 @@ var Poker = {
      */
     poker.getFigure = function () {
       return poker.figure;
+    }
+
+    /**
+     * 获取在52张牌中的编号
+     */
+    poker.getNum = function() {
+      return poker.suit * 10 + poker.figure - 1;
     }
 
     /**
@@ -182,6 +209,21 @@ var Poker = {
       return pokerCanshu.figureNameArray[poker.figure - 1];
     }
     
+    /**
+     * 获取字符型式
+     */
+    poker.toString = function() {
+      return poker.suitToString() + poker.figureToString();
+    }
+
+    /**
+     * 清空此牌
+     */
+    poker.clearItself = function() {
+      poker.suit = pokerCanshu.NODATA;
+      poker.figure = pokerCanshu.NODATA;
+    }
+
     /**
      * 返回出构造好的对象
      */

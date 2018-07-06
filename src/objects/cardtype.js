@@ -65,6 +65,11 @@ var CardType = {
       return 0;
     }
 
+    /**
+     * 返回封装的对象
+     */
+    return cardtype;
+
   }
 }
 

@@ -1,7 +1,7 @@
 var poker = require("./poker.js");
 var pokerpool = require("./pokerpool.js");
-var cardtype = require("./cardtype.js")
-var pokerlist = require("./pokerlist.js")
+var cardtype = require("./cardtype.js");
+var pokerlist = require("./pokerlist.js");
 
 var Player = {
   createNew : function() {
@@ -26,26 +26,25 @@ var Player = {
     }
 
     /**
-     * 返回手牌1
+     * 返回手牌
+     * 传入参数0为手牌1，1为手牌2
      */
-    player.getHand1 = function() {
-      return player.hand1;
+    player.getHand = function(num) {
+      if(num == 0)
+        return player.hand1;
+      else
+        return player.hand2;
     }
 
-    /**
-     * 返回手牌2
-     */
-    player.getHand2 = function() {
-      return player.hand2;
-    }
+    
 
     /**
      * 以数组形式返回两张手牌
      */
     player.getTwoCardWithArray = function() {
       var result = new Array(2);
-      result[0] = player.getHand1();
-      result[1] = player.getHand2();
+      result[0] = player.getHand(0);
+      result[1] = player.getHand(1);
       return result;
     }
 
@@ -53,7 +52,14 @@ var Player = {
      * 返回胜利次数
      */
     player.getWinCount = function() {
-      return count;
+      return player.count;
+    }
+
+    /**
+     * 重置胜利次数
+     */
+    player.refleshWinCount = function() {
+      player.count = 0;
     }
     
     /**
@@ -64,24 +70,23 @@ var Player = {
     }
     
     /**
-     * 设置手牌1
+     * 设置手牌
+     * 第一个参数是手牌编号
+     * 第二个是设置哪一张牌
      */
-    player.setHand1 = function(num1) {
-      player.hand1.setByNum(num1);
-    }
-
-    /**
-     * 设置手牌2
-     */
-    player.setHand2 = function(num1) {
-      player.hand2.setByNum(num1);
+    player.setHand = function(num1, num2) {
+      if(num2 == 0)
+        player.hand1.setByNum(num1);
+      else
+        player.hand2.setByNum(num1);
+      player.reflashReady();
     }
     
     /**
      * 更新玩家的就绪状态
      */
     player.reflashReady = function() {
-      if(!player.hand1.isEmpty() && !player.hand2.siEmpty()) {
+      if(!player.hand1.isEmpty() && !player.hand2.isEmpty()) {
         player.isReady = true;
       } else {
         player.isReady = false;

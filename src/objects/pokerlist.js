@@ -26,12 +26,27 @@ var PokerList = {
      */
     pokerlist.setList = function(list1) {
       pokerlist.list = list1;
+      pokerlist.CalculateCardType();
     }
     
     /**
      * 初始化牌型
      */
     pokerlist.cardType = cardtype.CardType.createNew();
+
+    /**
+     * 获取牌型
+     */
+    pokerlist.getCardType = function() {
+      return pokerlist.cardType;
+    }
+
+    /**
+     * 与另一个pokerlist比较牌型
+     */
+    pokerlist.isBiggerThan = function(another) {
+      return pokerlist.getCardType().compareWithAnother(another.getCardType());
+    }
     
     /**
      * 检查这个牌组有没有特定点数的牌
@@ -73,7 +88,7 @@ var PokerList = {
       }
       for (var i = 0; i < pokerlist.list.length; i++) {
         var figure1 = pokerlist.list[i].getFigure();
-        result[figure1].push(pokerlist.list[i]);
+        result[figure1-1].push(pokerlist.list[i]);
       }
       return result;
     }
@@ -122,7 +137,27 @@ var PokerList = {
      * 返回值为一个数组{type, 特征数组}。用于下一步构建牌型对象
      */
     pokerlist.CalculateCardType = function() {
-      
+      if(pokerlist.hasStraighFlush() != -1) {
+        var tmpArray = [pokerlist.hasStraighFlush()];
+        pokerlist.cardType.setCardType(8,tmpArray);
+      } else if (pokerlist.hasFourOfAKind() != null) {
+        pokerlist.cardType.setCardType(7, pokerlist.hasFourOfAKind());
+      } else if (pokerlist.hasFullHouse() != null) {
+        pokerlist.cardType.setCardType(6, pokerlist.hasFullHouse());
+      } else if (pokerlist.hasFlush() != null) {
+        pokerlist.cardType.setCardType(5, pokerlist.hasFlush());
+      } else if (pokerlist.hasStraight(pokerlist.list) != -1) {
+        pokerlist.cardType.setCardType(4, [pokerlist.hasStraight(pokerlist.list)]);
+      } else if (pokerlist.hasThreeOfAKind() != null) {
+        pokerlist.cardType.setCardType(3, pokerlist.hasThreeOfAKind());
+      } else if (pokerlist.hasTwoPairs() != null) {
+        pokerlist.cardType.setCardType(2, pokerlist.hasTwoPairs());
+      } else if (pokerlist.hasOnePair() != null) {
+        pokerlist.cardType.setCardType(1, pokerlist.hasOnePair());
+      } else {
+        pokerlist.cardType.setCardType(0, pokerlist.returnHighCard());
+      }
+      return;
     }
 
     /**
@@ -264,11 +299,11 @@ var PokerList = {
             resultArray[0] = i + 1;
             var numb = 1;
             if (tmpArray[0].length >= 0) {
-              resultArray[1] = 1;
+              resultArray[numb] = 1;
               numb++;
             }
             for (var j = 12; j >= 1 && numb <= 2; j--) {
-              if (j != resultArray[0] - 1 && tmpArray[j].length >= 2) {
+              if (j != resultArray[0] - 1 && tmpArray[j].length >= 1) {
                 resultArray[numb] = j + 1;
                 numb++;
               }
@@ -311,7 +346,7 @@ var PokerList = {
           if (tmpArray[i].length == 2) {
             resultArray[0] = i + 1;
             var flag1 = false;
-            for (var j = 12; j >= 1; j--) {
+            for (var j = i - 1; j >= 1; j--) {
               if (tmpArray[j].length == 2) {
                 resultArray[1] = j + 1;
                 flag1 = true;
@@ -352,6 +387,7 @@ var PokerList = {
             numb++;
           }
         }
+        return resultArray;
       } else {
         for (var i = 12; i >= 1; i--) {
           if (tmpArray[i].length == 2) {
@@ -393,7 +429,6 @@ var PokerList = {
       }
       return resultArray;
     }
-
 
     /**
      * 返回出构造好的对象

@@ -114,6 +114,8 @@
            </view>
         </view>
 
+        <view></view>
+
         <view hidden="{{selectpagehide}}" id="selectpage">
           <view id = "select0" class="poker"  bindtap="selector">
              <view class="hpoker">A</view>
