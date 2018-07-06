@@ -81,6 +81,19 @@ var Player = {
         player.hand2.setByNum(num1);
       player.reflashReady();
     }
+
+    /**
+     * 清空手牌
+     * 第一个参数是手牌编号
+     * 第二个是清空哪一张牌
+     */
+    player.cleanHand = function (num2) {
+      if (num2 == 0)
+        player.hand1.clearItself();
+      else
+        player.hand2.clearItself();
+      player.reflashReady();
+    }
     
     /**
      * 更新玩家的就绪状态

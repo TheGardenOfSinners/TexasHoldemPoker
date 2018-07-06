@@ -44,99 +44,311 @@
            </view>
         </view>
         <view id="p3" class="player">
-            <view id="p31" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p31" class="poker leftp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[2][0]}}</view>
+             <view class="lpoker">{{cardsuit[2][0]}}</view>
            </view>
-            <view id="p32" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p32" class="poker rightp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[2][1]}}</view>
+             <view class="lpoker">{{cardsuit[2][1]}}</view>
            </view>
         </view>
         <view id="p4" class="player">
-            <view id="p41" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p41" class="poker leftp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[3][0]}}</view>
+             <view class="lpoker">{{cardsuit[3][0]}}</view>
            </view>
-            <view id="p42" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p42" class="poker rightp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[3][1]}}</view>
+             <view class="lpoker">{{cardsuit[3][1]}}</view>
            </view>
         </view>
         <view id="p5" class="player">
-            <view id="p51" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p51" class="poker leftp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[4][0]}}</view>
+             <view class="lpoker">{{cardsuit[4][0]}}</view>
            </view>
-            <view id="p52" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p52" class="poker rightp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[4][1]}}</view>
+             <view class="lpoker">{{cardsuit[4][1]}}</view>
            </view>
         </view>
         <view id="p6" class="player">
-            <view id="p61" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p61" class="poker leftp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[5][0]}}</view>
+             <view class="lpoker">{{cardsuit[5][0]}}</view>
            </view>
-            <view id="p62" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p62" class="poker rightp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[5][1]}}</view>
+             <view class="lpoker">{{cardsuit[5][1]}}</view>
            </view>
         </view>
         <view id="p7" class="player">
-            <view id="p71" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p71" class="poker leftp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[6][0]}}</view>
+             <view class="lpoker">{{cardsuit[6][0]}}</view>
            </view>
-            <view id="p72" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p72" class="poker rightp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[6][1]}}</view>
+             <view class="lpoker">{{cardsuit[6][1]}}</view>
            </view>
         </view>
         <view id="p8" class="player">
-            <view id="p81" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p81" class="poker leftp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[7][0]}}</view>
+             <view class="lpoker">{{cardsuit[7][0]}}</view>
            </view>
-            <view id="p82" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p82" class="poker rightp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[7][1]}}</view>
+             <view class="lpoker">{{cardsuit[7][1]}}</view>
            </view>
         </view>
         <view id="p9" class="player">
-            <view id="p91" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p91" class="poker leftp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[8][0]}}</view>
+             <view class="lpoker">{{cardsuit[8][0]}}</view>
            </view>
-            <view id="p92" class="poker">
-             <view class="hpoker">{{cardnum}}</view>
-             <view class="lpoker">{{cardsuit}}</view>
+            <view id="p92" class="poker rightp" bindtap= "playCardevent">
+             <view class="hpoker">{{cardnum[8][1]}}</view>
+             <view class="lpoker">{{cardsuit[8][1]}}</view>
            </view>
         </view>
 
         <view></view>
 
         <view hidden="{{selectpagehide}}" id="selectpage">
-          <view id = "select0" class="poker"  bindtap="selector">
-             <view class="hpoker">A</view>
-             <view class="lpoker">◆</view>
-           </view>
-           <view id="select1" class="poker" bindtap="selector">
-             <view class="hpoker">2</view>
-             <view class="lpoker">◆</view>
-           </view>
-           <view id="select2" class="poker" bindtap="selector">
-             <view class="hpoker">3</view>
-             <view class="lpoker">◆</view>
-           </view>
-           <view id="select3" class="poker" bindtap="selector">
-             <view class="hpoker">4</view>
-             <view class="lpoker">◆</view>
-           </view>
-           <view id="select4" class="poker" bindtap="selector">
-             <view class="hpoker">5</view>
-             <view class="lpoker">◆</view>
-           </view>
+          <view id="selectorContainer0" class="container">
+            <view id="select0" class="Card1 poker red" bindtap="selector">
+              <view class="hpoker">A</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select1" class="Card2 poker red" bindtap="selector">
+              <view class="hpoker">2</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select2" class="Card3 poker red" bindtap="selector">
+              <view class="hpoker">3</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select3" class="Card4 poker red" bindtap="selector">
+              <view class="hpoker">4</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select4" class="Card5 poker red" bindtap="selector">
+              <view class="hpoker">5</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select5" class="Card6 poker red" bindtap="selector">
+              <view class="hpoker">6</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select6" class="Card7 poker red" bindtap="selector">
+              <view class="hpoker">7</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select7" class="Card8 poker red" bindtap="selector">
+              <view class="hpoker">8</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select8" class="Card9 poker red" bindtap="selector">
+              <view class="hpoker">9</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select9" class="Card10 poker red" bindtap="selector">
+              <view class="hpoker">10</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select10" class="Card11 poker red" bindtap="selector">
+              <view class="hpoker">J</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select11" class="Card12 poker red" bindtap="selector">
+              <view class="hpoker">Q</view>
+              <view class="lpoker">♦</view>
+            </view>
+            <view id="select12" class="Card13 poker red" bindtap="selector">
+              <view class="hpoker">K</view>
+              <view class="lpoker">♦</view>
+            </view>
+          </view>
+
+          <view id="selectorContainer1" class="container">
+            <view id="select13" class="poker Card1" bindtap="selector">
+              <view class="hpoker">A</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select14" class="poker Card2" bindtap="selector">
+              <view class="hpoker">2</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select15" class="poker Card3" bindtap="selector">
+              <view class="hpoker">3</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select16" class="poker Card4" bindtap="selector">
+              <view class="hpoker">4</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select17" class="poker Card5" bindtap="selector">
+              <view class="hpoker">5</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select18" class="poker Card6" bindtap="selector">
+              <view class="hpoker">6</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select19" class="poker Card7" bindtap="selector">
+              <view class="hpoker">7</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select20" class="poker Card8" bindtap="selector">
+              <view class="hpoker">8</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select21" class="poker Card9" bindtap="selector">
+              <view class="hpoker">9</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select22" class="poker Card10" bindtap="selector">
+              <view class="hpoker">10</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select23" class="poker Card11" bindtap="selector">
+              <view class="hpoker">J</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select24" class="poker Card12" bindtap="selector">
+              <view class="hpoker">Q</view>
+              <view class="lpoker">♣</view>
+            </view>
+            <view id="select25" class="poker Card13" bindtap="selector">
+              <view class="hpoker">K</view>
+              <view class="lpoker">♣</view>
+            </view>
+          </view>
+
+          <view id="selectorContainer2" class="container">
+            <view id="select26" class="poker red Card1" bindtap="selector">
+              <view class="hpoker">A</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select27" class="poker red Card2" bindtap="selector">
+              <view class="hpoker">2</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select28" class="poker red Card3" bindtap="selector">
+              <view class="hpoker">3</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select29" class="poker red Card4" bindtap="selector">
+              <view class="hpoker">4</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select30" class="poker red Card5" bindtap="selector">
+              <view class="hpoker">5</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select31" class="poker red Card6" bindtap="selector">
+              <view class="hpoker">6</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select32" class="poker red Card7" bindtap="selector">
+              <view class="hpoker">7</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select33" class="poker red Card8" bindtap="selector">
+              <view class="hpoker">8</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select34" class="poker red Card9" bindtap="selector">
+              <view class="hpoker">9</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select35" class="poker red Card10" bindtap="selector">
+              <view class="hpoker">10</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select36" class="poker red Card11" bindtap="selector">
+              <view class="hpoker">J</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select37" class="poker red Card12" bindtap="selector">
+              <view class="hpoker">Q</view>
+              <view class="lpoker">♥</view>
+            </view>
+            <view id="select38" class="poker red Card13" bindtap="selector">
+              <view class="hpoker">K</view>
+              <view class="lpoker">♥</view>
+            </view>
+          </view>
+
+          <view id="selectorContainer3" class="container">
+            <view id="select39" class="poker Card1" bindtap="selector">
+              <view class="hpoker">A</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select40" class="poker Card2" bindtap="selector">
+              <view class="hpoker">2</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select41" class="poker Card3" bindtap="selector">
+              <view class="hpoker">3</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select42" class="poker Card4" bindtap="selector">
+              <view class="hpoker">4</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select43" class="poker Card5" bindtap="selector">
+              <view class="hpoker">5</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select44" class="poker Card6" bindtap="selector">
+              <view class="hpoker">6</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select45" class="poker Card7" bindtap="selector">
+              <view class="hpoker">7</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select46" class="poker Card8" bindtap="selector">
+              <view class="hpoker">8</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select47" class="poker Card9" bindtap="selector">
+              <view class="hpoker">9</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select48" class="poker Card10" bindtap="selector">
+              <view class="hpoker">10</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select49" class="poker Card11" bindtap="selector">
+              <view class="hpoker">J</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select50" class="poker Card12" bindtap="selector">
+              <view class="hpoker">Q</view>
+              <view class="lpoker">♠</view>
+            </view>
+            <view id="select51" class="poker Card13" bindtap="selector">
+              <view class="hpoker">K</view>
+              <view class="lpoker">♠</view>
+            </view>
+          </view>
+          
+          <view id="selectorContainer4" class="container">
+            <view id="zhikong" bindtap="cleanACard">
+              置空
+            </view>
+            <view id="fanhui" bindtap="goBackToIndex">
+              返回
+            </view>
+          </view>
+
+
+
+
         </view>
 
         

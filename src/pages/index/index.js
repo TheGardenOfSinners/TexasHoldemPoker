@@ -23,7 +23,7 @@ Page({
   onLoad: function (options) {
     this.initialData();
     this.initialObject();
-    this.testForUs();
+//    this.testForUs();
   },
 
   /**
@@ -80,34 +80,25 @@ Page({
    */
   testForUs : function() {
     
-    this.dealer.popCardByNum(13);
-    this.publicCardInPage[0].setByNum(13);
+    this.dealer.popCardByNum(0);
+    this.publicCardInPage[0].setByNum(0);
     console.log(this.publicCardInPage[0].toString());
     
-    
-    
-    this.dealer.popCardByNum(38);
-    this.publicCardInPage[1].setByNum(38);
+    this.dealer.popCardByNum(12);
+    this.publicCardInPage[1].setByNum(12);
     console.log(this.publicCardInPage[1].toString());
-    
-    
-    
-    this.dealer.popCardByNum(34);
-    this.publicCardInPage[2].setByNum(34);
+
+    this.dealer.popCardByNum(11);
+    this.publicCardInPage[2].setByNum(11);
     console.log(this.publicCardInPage[2].toString());
     
-    
-    /*
-    this.dealer.popCardByNum(15);
-    this.publicCardInPage[3].setByNum(15);
+    this.dealer.popCardByNum(10);
+    this.publicCardInPage[3].setByNum(10);
     console.log(this.publicCardInPage[3].toString());
-    */
 
-    /*
-    this.dealer.popCardByNum(16);
-    this.publicCardInPage[4].setByNum(16);
-    console.log(this.publicCardInPage[3].toString());
-    */
+    this.dealer.popCardByNum(9);
+    this.publicCardInPage[4].setByNum(9);
+    console.log(this.publicCardInPage[4].toString());
 
     this.allPlayerArray[0].setHand(3,0);
     this.allPlayerArray[0].setHand(1,1);
@@ -121,7 +112,7 @@ Page({
     this.dealer.popCardByNum(20);
     console.log(this.allPlayerArray[1].getHand(0).toString());
     console.log(this.allPlayerArray[1].getHand(1).toString());
-    var totalTimes = this.counterTimeWhen3([0, 1], this.publicCardInPage, 0);
+    var totalTimes = this.counterTimeWhen5([0, 1], this.publicCardInPage, 0);
     console.log(totalTimes);
     console.log(this.allPlayerArray[0].getWinCount());
     console.log(this.allPlayerArray[1].getWinCount());
@@ -186,41 +177,6 @@ Page({
   },
   
   /**
-   * 改编扑克类
-   * 传入参数为需要更改的那张牌的编号以及更改的目标
-   */
-  changeCardObject: function(num, cardNum) {
-    
-    if (num < 18) {
-      var num1 = parseInt(num / 2), num2 = num % 2;
-      if (this.allPlayerArray[num1].getHand(num2).isEmpty()) {
-        this.dealer.popCardByNum(cardNum);
-        this.allPlayerArray[num1].setHand(cardNum, num2);
-      } else {
-        var num3 = this.allPlayerArray[num1].getHand(num2).getNum();
-        this.dealer.recoveryCardByNum(num3);
-        this.dealer.popCardByNum(cardNum);
-        this.allPlayerArray[num1].setHand(cardNum, num2);
-      }
-      
-    } else {
-      var tmp = num - 18;
-      if (this.publicCardInPage[tmp].isEmpty()) {
-        this.dealer.popCardByNum(cardNum);
-        this.publicCardInPage[tmp].setByNum(cardNum);
-        this.alreadyPublicCard++;
-        console.log(this.alreadyPublicCard);
-      } else {//把新牌派发之前把旧牌回收
-        var num3 = this.publicCardInPage[tmp].getNum();
-        this.dealer.recoveryCardByNum(num3);
-        this.dealer.popCardByNum(cardNum);
-        this.publicCardInPage[tmp].setByNum(cardNum);
-      }
-    }
-  },
-
-
-  /**
    * 计算各个玩家的胜率
    */
   calculateAllPlayerRate: function() {
@@ -255,13 +211,46 @@ Page({
    */
   counterTimeWhen0: function (participant, inputPublic, startNum) {
     var total = 0;
-    for (var i = startNum; i < 52; i++) {
-      if (this.dealer.CardIsAvailableByNum(i)) {
-        this.dealer.popCardByNum(i);
-        inputPublic[0].setByNum(i);
-        total += this.counterTimeWhen1(participant, inputPublic, i + 1);
+    for (var i0 = startNum; i0 < 52; i0++) {
+      if (this.dealer.CardIsAvailableByNum(i0)) {
+        this.dealer.popCardByNum(i0);
+        inputPublic[0].setByNum(i0);
+        for (var i1 = i0+1; i1 < 52; i1++) {
+          if (this.dealer.CardIsAvailableByNum(i1)) {
+            this.dealer.popCardByNum(i1);
+            inputPublic[1].setByNum(i1);
+            for (var i2 = i1 + 1; i2 < 52; i2++) {
+              if (this.dealer.CardIsAvailableByNum(i2)) {
+                this.dealer.popCardByNum(i2);
+                inputPublic[2].setByNum(i2);
+                for (var i = i2 + 1; i < 52; i++) {
+                  if (this.dealer.CardIsAvailableByNum(i)) {
+                    this.dealer.popCardByNum(i);
+                    inputPublic[3].setByNum(i);
+                    for (var j = i + 1; j < 52; j++) {
+                      if (this.dealer.CardIsAvailableByNum(j)) {
+                        this.dealer.popCardByNum(j);
+                        inputPublic[4].setByNum(j);
+                        total += this.counterTimeWhen5(participant, inputPublic, j + 1);
+                        inputPublic[4].clearItself();
+                        this.dealer.recoveryCardByNum(j);
+                      }
+                    }
+                    inputPublic[3].clearItself();
+                    this.dealer.recoveryCardByNum(i);
+                  }
+                }
+                inputPublic[2].clearItself();
+                this.dealer.recoveryCardByNum(i2);
+              }
+            }
+            inputPublic[1].clearItself();
+            this.dealer.recoveryCardByNum(i1);
+          }
+        }
+
         inputPublic[0].clearItself();
-        this.dealer.recoveryCardByNum(i);
+        this.dealer.recoveryCardByNum(i0);
       }
     }
     return total;
@@ -272,13 +261,37 @@ Page({
    */
   counterTimeWhen1: function (participant, inputPublic, startNum) {
     var total = 0;
-    for (var i = startNum; i < 52; i++) {
-      if (this.dealer.CardIsAvailableByNum(i)) {
-        this.dealer.popCardByNum(i);
-        inputPublic[1].setByNum(i);
-        total += this.counterTimeWhen2(participant, inputPublic, i + 1);
+    for (var i1 = startNum; i1 < 52; i1++) {
+      if (this.dealer.CardIsAvailableByNum(i1)) {
+        this.dealer.popCardByNum(i1);
+        inputPublic[1].setByNum(i1);
+        for (var i2 = i1 + 1; i2 < 52; i2++) {
+          if (this.dealer.CardIsAvailableByNum(i2)) {
+            this.dealer.popCardByNum(i2);
+            inputPublic[2].setByNum(i2);
+            for (var i = i2 + 1; i < 52; i++) {
+              if (this.dealer.CardIsAvailableByNum(i)) {
+                this.dealer.popCardByNum(i);
+                inputPublic[3].setByNum(i);
+                for (var j = i + 1; j < 52; j++) {
+                  if (this.dealer.CardIsAvailableByNum(j)) {
+                    this.dealer.popCardByNum(j);
+                    inputPublic[4].setByNum(j);
+                    total += this.counterTimeWhen5(participant, inputPublic, j + 1);
+                    inputPublic[4].clearItself();
+                    this.dealer.recoveryCardByNum(j);
+                  }
+                }
+                inputPublic[3].clearItself();
+                this.dealer.recoveryCardByNum(i);
+              }
+            }
+            inputPublic[2].clearItself();
+            this.dealer.recoveryCardByNum(i2);
+          }
+        }
         inputPublic[1].clearItself();
-        this.dealer.recoveryCardByNum(i);
+        this.dealer.recoveryCardByNum(i1);
       }
     }
     return total;
@@ -289,13 +302,29 @@ Page({
    */
   counterTimeWhen2: function (participant, inputPublic, startNum) {
     var total = 0;
-    for (var i = startNum; i < 52; i++) {
-      if (this.dealer.CardIsAvailableByNum(i)) {
-        this.dealer.popCardByNum(i);
-        inputPublic[2].setByNum(i);
-        total += this.counterTimeWhen3(participant, inputPublic, i + 1);
+    for (var i2 = startNum; i2 < 52; i2++) {
+      if (this.dealer.CardIsAvailableByNum(i2)) {
+        this.dealer.popCardByNum(i2);
+        inputPublic[2].setByNum(i2);
+        for (var i = i2 + 1; i < 52; i++) {
+          if (this.dealer.CardIsAvailableByNum(i)) {
+            this.dealer.popCardByNum(i);
+            inputPublic[3].setByNum(i);
+            for (var j = i + 1; j < 52; j++) {
+              if (this.dealer.CardIsAvailableByNum(j)) {
+                this.dealer.popCardByNum(j);
+                inputPublic[4].setByNum(j);
+                total += this.counterTimeWhen5(participant, inputPublic, j + 1);
+                inputPublic[4].clearItself();
+                this.dealer.recoveryCardByNum(j);
+              }
+            }
+            inputPublic[3].clearItself();
+            this.dealer.recoveryCardByNum(i);
+          }
+        }
         inputPublic[2].clearItself();
-        this.dealer.recoveryCardByNum(i);
+        this.dealer.recoveryCardByNum(i2);
       }
     }
     return total;
@@ -310,7 +339,15 @@ Page({
       if (this.dealer.CardIsAvailableByNum(i)) {
         this.dealer.popCardByNum(i);
         inputPublic[3].setByNum(i);
-        total += this.counterTimeWhen4(participant, inputPublic, i + 1);
+        for(var j = i + 1; j < 52;j++) {
+          if (this.dealer.CardIsAvailableByNum(j)) {
+            this.dealer.popCardByNum(j);
+            inputPublic[4].setByNum(j);
+            total += this.counterTimeWhen5(participant, inputPublic, j + 1);
+            inputPublic[4].clearItself();
+            this.dealer.recoveryCardByNum(j);
+          }
+        }
         inputPublic[3].clearItself();
         this.dealer.recoveryCardByNum(i);
       }
@@ -364,6 +401,41 @@ Page({
   },
 
   /**
+   * 改编扑克类
+   * 传入参数为需要更改的那张牌的编号以及更改的目标
+   */
+  changeCardObject: function (num, cardNum) {
+
+    if (num < 18) {
+      var num1 = parseInt(num / 2), num2 = num % 2;
+      if (this.allPlayerArray[num1].getHand(num2).isEmpty()) {
+        this.dealer.popCardByNum(cardNum);
+        this.allPlayerArray[num1].setHand(cardNum, num2);
+      } else {
+        var num3 = this.allPlayerArray[num1].getHand(num2).getNum();
+        this.dealer.recoveryCardByNum(num3);
+        this.dealer.popCardByNum(cardNum);
+        this.allPlayerArray[num1].setHand(cardNum, num2);
+      }
+
+    } else {
+      var tmp = num - 18;
+      if (this.publicCardInPage[tmp].isEmpty()) {
+        this.dealer.popCardByNum(cardNum);
+        this.publicCardInPage[tmp].setByNum(cardNum);
+        this.alreadyPublicCard++;
+        console.log(this.alreadyPublicCard);
+      } else {//把新牌派发之前把旧牌回收
+        var num3 = this.publicCardInPage[tmp].getNum();
+        this.dealer.recoveryCardByNum(num3);
+        this.dealer.popCardByNum(cardNum);
+        this.publicCardInPage[tmp].setByNum(cardNum);
+      }
+    }
+  },
+
+
+  /**
    * 改编扑克外表
    * 传入参数为需要更改的那张牌的编号以及更改的目标
    */
@@ -382,6 +454,40 @@ Page({
       tmp2[tmp] = poker.pokerCanshu.suitNameArrayByNum[cardNum];
       this.setData({ cardnumpd: tmp1, cardsuitpd: tmp2 });
     }
+  },
+
+  /**
+   * 置空一张卡牌
+   * 置空按钮的点击事件
+   */
+  cleanACard: function () {
+    var numToChange = this.data.nowChange;
+    if(numToChange < 18) {
+      var tmp1 = this.data.cardnumplay, num1 = parseInt(num / 2), num2 = num % 2;
+      tmp1[num1][num2] = " ";
+      var tmp2 = this.data.cardsuitplay;
+      tmp2[num1][num2] = " ";
+      this.setData({ cardnumplay: tmp1, cardsuitplay: tmp2 });
+      if (!this.allPlayerArray[num1].getHand(num2).isEmpty()) {
+        var tmpNum = this.allPlayerArray[num1].getHand(num2).getNum();
+        this.dealer.recoveryCardByNum(tmpNum);
+        this.allPlayerArray[num1].cleanHand(num2);
+      }
+      
+    } else {
+      var tmp = numToChange - 18;
+      var tmp1 = this.data.cardnumpd;
+      var tmp2 = this.data.cardsuitpd;
+      tmp1[tmp] = " ";
+      tmp2[tmp] = " ";
+      this.setData({ cardnumpd: tmp1, cardsuitpd: tmp2 });
+      if (!this.publicCardInPage[tmp].isEmpty()) {
+        var tmpNum = this.publicCardInPage[tmp].getNum();
+        this.dealer.recoveryCardByNum(tmpNum);
+        this.publicCardInPage[tmp].clearItself();
+      }
+    }
+    this.setData({ selectpagehide: true });
   },
 
   /**

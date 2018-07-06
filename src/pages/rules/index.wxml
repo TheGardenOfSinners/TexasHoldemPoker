@@ -6,105 +6,115 @@
 </text>
 
 
-<text id="word1">
+<text id="word1" class = "word">
   <text>
-  皇家同花顺</text>
+    皇家同花顺
+  </text>
 </text>
 
-<text id="word2">
+<text id="word2" class = "word">
   <text>
-  同花顺</text>
+    同花顺
+  </text>
 </text>
 
-<text id="word3">
+<text id="word3" class = "word">
   <text>
-  金刚</text>
+    金刚
+  </text>
 </text>
 
-<text id="word4">
+<text id="word4" class = "word">
   <text>
-  葫芦</text>
+    葫芦
+  </text>
 </text>
 
-<text id="word5">
+<text id="word5" class = "word">
   <text>
-  同花</text>
+    同花
+  </text>
 </text>
 
-<text id="word6">
+<text id="word6" class = "word">
   <text>
-  顺子</text>
+    顺子
+  </text>
 </text>
 
-<text id="word7">
+<text id="word7" class = "word">
   <text>
-  三条</text>
+    三条
+  </text>
 </text>
 
-<text id="word8">
+<text id="word8" class = "word">
   <text>
-  两对</text>
+    两对
+  </text>
 </text>
 
-<text id="word9">
+<text id="word9" class = "word">
   <text>
-  一对</text>
+    一对
+  </text>
 </text>
 
-<text id="word10">
+<text id="word10" class = "word">
   <text>
-  高牌</text>
+    高牌
+  </text>
 </text>
 
 
 <view id="public-cards">
-  <view id="flop1" class="poker">
+  <view id="flop1" class="poker red">
     <view class="hpoker">A</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="flop2" class="poker">
+  <view id="flop2" class="poker red">
     <view class="hpoker">K</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="flop3" class="poker">
+  <view id="flop3" class="poker red">
     <view class="hpoker">Q</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="turn" class="poker">
+  <view id="turn" class="poker red">
     <view class="hpoker">J</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="river" class="poker">
+  <view id="river" class="poker red">
     <view class="hpoker">10</view>
     <view class="lpoker">◆</view>
   </view>
 </view>
 
 <view id="public-cards1">
-  <view id="flop1" class="poker">
+  <view id="flop1" class="poker red">
     <view class="hpoker">Q</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="flop2" class="poker">
+  <view id="flop2" class="poker red">
     <view class="hpoker">J</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="flop3" class="poker">
+  <view id="flop3" class="poker red">
     <view class="hpoker">10</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="turn" class="poker">
+  <view id="turn" class="poker red">
     <view class="hpoker">9</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="river" class="poker">
+  <view id="river" class="poker red">
     <view class="hpoker">8</view>
     <view class="lpoker">◆</view>
   </view>
 </view>
 
 <view id="public-cards2">
-  <view id="flop1" class="poker">
+  <view id="flop1" class="poker red">
     <view class="hpoker">A</view>
     <view class="lpoker">♥</view>
   </view>
@@ -112,11 +122,11 @@
     <view class="hpoker">K</view>
     <view class="lpoker">♣</view>
   </view>
-  <view id="flop3" class="poker">
+  <view id="flop3" class="poker red">
     <view class="hpoker">K</view>
     <view class="lpoker">♥</view>
   </view>
-  <view id="turn" class="poker">
+  <view id="turn" class="poker red">
     <view class="hpoker">K</view>
     <view class="lpoker">◆</view>
   </view>
@@ -127,11 +137,11 @@
 </view>
 
 <view id="public-cards3">
-  <view id="flop1" class="poker">
+  <view id="flop1" class="poker red">
     <view class="hpoker">8</view>
     <view class="lpoker">♥</view>
   </view>
-  <view id="flop2" class="poker">
+  <view id="flop2" class="poker red">
     <view class="hpoker">8</view>
     <view class="lpoker">◆</view>
   </view>
@@ -139,41 +149,41 @@
     <view class="hpoker">9</view>
     <view class="lpoker">♣</view>
   </view>
-  <view id="turn" class="poker">
+  <view id="turn" class="poker red">
     <view class="hpoker">9</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="river" class="poker">
+  <view id="river" class="poker red">
     <view class="hpoker">9</view>
     <view class="lpoker">♥</view>
   </view>
 </view>
 
 <view id="public-cards4">
-  <view id="flop1" class="poker">
+  <view id="flop1" class="poker red">
     <view class="hpoker">A</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="flop2" class="poker">
+  <view id="flop2" class="poker red">
     <view class="hpoker">Q</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="flop3" class="poker">
+  <view id="flop3" class="poker red">
     <view class="hpoker">8</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="turn" class="poker">
+  <view id="turn" class="poker red">
     <view class="hpoker">5</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="river" class="poker">
+  <view id="river" class="poker red">
     <view class="hpoker">2</view>
     <view class="lpoker">◆</view>
   </view>
 </view>
 
 <view id="public-cards5">
-  <view id="flop1" class="poker">
+  <view id="flop1" class="poker red">
     <view class="hpoker">K</view>
     <view class="lpoker">◆</view>
   </view>
@@ -181,7 +191,7 @@
     <view class="hpoker">Q</view>
     <view class="lpoker">♣</view>
   </view>
-  <view id="flop3" class="poker">
+  <view id="flop3" class="poker red">
     <view class="hpoker">J</view>
     <view class="lpoker">♥</view>
   </view>
@@ -189,18 +199,18 @@
     <view class="hpoker">10</view>
     <view class="lpoker">♠</view>
   </view>
-  <view id="river" class="poker">
+  <view id="river" class="poker red">
     <view class="hpoker">9</view>
     <view class="lpoker">◆</view>
   </view>
 </view>
 
 <view id="public-cards6">
-  <view id="flop1" class="poker">
+  <view id="flop1" class="poker red">
     <view class="hpoker">K</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="flop2" class="poker">
+  <view id="flop2" class="poker red">
     <view class="hpoker">K</view>
     <view class="lpoker">♥</view>
   </view>
@@ -208,22 +218,22 @@
     <view class="hpoker">K</view>
     <view class="lpoker">♣</view>
   </view>
-  <view id="turn" class="poker">
+  <view id="turn" class="poker red">
     <view class="hpoker">10</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="river" class="poker">
+  <view id="river" class="poker red">
     <view class="hpoker">8</view>
     <view class="lpoker">◆</view>
   </view>
 </view>
 
 <view id="public-cards7">
-  <view id="flop1" class="poker">
+  <view id="flop1" class="poker red">
     <view class="hpoker">A</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="flop2" class="poker">
+  <view id="flop2" class="poker red">
     <view class="hpoker">A</view>
     <view class="lpoker">♥</view>
   </view>
@@ -231,49 +241,49 @@
     <view class="hpoker">K</view>
     <view class="lpoker">♣</view>
   </view>
-  <view id="turn" class="poker">
+  <view id="turn" class="poker red">
     <view class="hpoker">K</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="river" class="poker">
+  <view id="river" class="poker red">
     <view class="hpoker">8</view>
     <view class="lpoker">◆</view>
   </view>
 </view>
 
 <view id="public-cards8">
-  <view id="flop1" class="poker">
+  <view id="flop1" class="poker red">
     <view class="hpoker">A</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="flop2" class="poker">
+  <view id="flop2" class="poker red">
     <view class="hpoker">A</view>
     <view class="lpoker">♥</view>
   </view>
-  <view id="flop3" class="poker">
+  <view id="flop3" class="poker red">
     <view class="hpoker">Q</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="turn" class="poker">
+  <view id="turn" class="poker red">
     <view class="hpoker">7</view>
     <view class="lpoker">♥</view>
   </view>
-  <view id="river" class="poker">
+  <view id="river" class="poker red">
     <view class="hpoker">10</view>
     <view class="lpoker">◆</view>
   </view>
 </view>
 
 <view id="public-cards9">
-  <view id="flop1" class="poker">
+  <view id="flop1" class="poker red">
     <view class="hpoker">A</view>
     <view class="lpoker">◆</view>
   </view>
-  <view id="flop2" class="poker">
+  <view id="flop2" class="poker red">
     <view class="hpoker">Q</view>
     <view class="lpoker">♥</view>
   </view>
-  <view id="flop3" class="poker">
+  <view id="flop3" class="poker red">
     <view class="hpoker">8</view>
     <view class="lpoker">◆</view>
   </view>

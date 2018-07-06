@@ -1,49 +1,50 @@
 page {
   background-color: rgb(0,70,55);
+  font-family: ”微软雅黑”;
 }
 
 #selectpage {
-  width: 240rpx;
-  height: 36rpx;
+  width: 750rpx;
+  height: 1050rpx;
+  background-color: rgb(0,70,55);
   position : absolute;
-  top : 588rpx;
-  left : 338rpx;
+  top : 0rpx;
+  left : 0rpx;
   transition : all, 1s;
 }
 
 #public-cards {
-    width: 240rpx;
-    height: 36rpx;
+    width: 320rpx;
+    height: 96rpx;
     position : absolute;
     top : 438rpx;
     left : 338rpx;
 }
 
 .hpoker {
-    width: 48rpx;
-    height: 36rpx;
-    font-size: 35rpx;
+    width: 64rpx;
+    height: 48rpx;
+    font-size: 44rpx;
     text-align:center;
     border: none;
     position : absolute;
-    top: -5rpx;
+    top: -7rpx;
 }
 
 .lpoker {
-    width: 48rpx;
-    height: 36rpx;
-    font-size: 39rpx;
+    width: 64rpx;
+    height: 48rpx;
+    font-size: 52rpx;
     text-align:center;
     border: none;
     position : absolute;
-    top: 31rpx;
+    top: 41rpx;
 }
 
 .poker {
-    width: 48rpx;
-    height: 72rpx;
+    width: 64rpx;
+    height: 96rpx;
     background-color: white;
-    font-size: 37rpx;
     border-width : 1rpx;
     border-color : black;
     border-style : solid;
@@ -56,8 +57,8 @@ page {
 }
 
 .player {
-  width: 96rpx;
-  height: 72rpx;
+  width: 128rpx;
+  height: 96rpx;
   position : absolute;
 }
 
@@ -73,7 +74,7 @@ page {
 }
 
 .rightp {
-  left: 48rpx;
+  left: 64rpx;
   position: absolute;
 }
 
@@ -97,23 +98,101 @@ page {
     left : 80%;
 }
 
-#select0 {
-    left : 0;
+.container {
+    height: 210rpx;
+    width: 750rpx;
+    left: 0;
+    position: absolute;
+
 }
 
-#select1 {
-    left : 20%;
+#selectorContainer0 {
+    top: 0%;
 }
 
-#select2 {
-    left : 40%;
+#selectorContainer1 {
+    top: 20%;
 }
 
-#select3 {
-    left : 60%;
+#selectorContainer2 {
+    top: 40%;
 }
 
-#select4 {
-    left : 80%;
+#selectorContainer3 {
+    top: 60%;
 }
 
+#selectorContainer4 {
+    top: 80%;
+}
+
+
+
+
+
+
+.Card1 {
+    top : 10rpx;
+    left: 10rpx;
+}
+
+.Card2 {
+    top : 10rpx;
+    left: 84rpx;
+}
+
+.Card3 {
+    top : 10rpx;
+    left: 158rpx;
+}
+
+.Card4 {
+    top : 10rpx;
+    left: 232rpx;
+}
+
+.Card5 {
+    top : 10rpx;
+    left: 306rpx;
+}
+
+.Card6 {
+    top : 10rpx;
+    left: 380rpx;
+}
+
+.Card7 {
+    top : 10rpx;
+    left: 454rpx;
+}
+
+.Card8 {
+    top : 10rpx;
+    left: 528rpx;
+}
+
+.Card9 {
+    top : 10rpx;
+    left: 602rpx;
+}
+
+.Card10 {
+    top : 10rpx;
+    left: 676rpx;
+}
+
+.Card11 {
+    top : 114rpx;
+    left: 10rpx;
+}
+
+.Card12 {
+    top : 114rpx;
+    left: 84rpx;
+
+}
+
+.Card13 {
+    top : 114rpx;
+    left: 158rpx;
+}

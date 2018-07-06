@@ -2,12 +2,16 @@
 
 Page {
     background-color: rgb(0,70,55);
+    font-family: ”微软雅黑”;
+}
+
+.red {
+    color: red;
 }
 
 .hpoker {
     width: 48rpx;
     height: 36rpx;
-    background-color: white;
     font-size: 35rpx;
     text-align:center;
     border: none;
@@ -18,12 +22,11 @@ Page {
 .lpoker {
     width: 48rpx;
     height: 36rpx;
-    background-color: white;
     font-size: 39rpx;
     text-align:center;
     border: none;
     position : absolute;
-    top: 29rpx;
+    top: 31rpx;
 }
 
 .poker {
@@ -37,6 +40,15 @@ Page {
     position : absolute;
 }
 
+.word {
+  width: 240rpx;
+  height: 36rpx;
+  left : 100rpx;
+  position: absolute;
+  color: #FFD700;
+  text-align:right;
+}
+
 #word {
     width: 3000rpx;
     height: 40rpx;
@@ -46,93 +58,43 @@ Page {
 }
 
 #word1 {
-    width: 240rpx;
-    height: 36rpx;
-    position : absolute;
     top : 110rpx;
-    left : 140rpx;
-    color: #FFD700;
 }
 
 #word2 {
-    width: 240rpx;
-    height: 36rpx;
-    position : absolute;
     top : 190rpx;
-    left : 210rpx;
-    color: #FFD700;
 }
 
 #word3 {
-    width: 240rpx;
-    height: 36rpx;
-    position : absolute;
     top : 270rpx;
-    left : 245rpx;
-    color: #FFD700;
 }
 
 #word4 {
-    width: 240rpx;
-    height: 36rpx;
-    position : absolute;
     top : 350rpx;
-    left : 245rpx;
-    color: #FFD700;
 }
 
 #word5 {
-    width: 240rpx;
-    height: 36rpx;
-    position : absolute;
     top : 430rpx;
-    left : 245rpx;
-    color: #FFD700;
 }
 
 #word6 {
-    width: 240rpx;
-    height: 36rpx;
-    position : absolute;
     top : 510rpx;
-    left : 245rpx;
-    color: #FFD700;
 }
 
 #word7 {
-    width: 240rpx;
-    height: 36rpx;
-    position : absolute;
     top : 590rpx;
-    left : 245rpx;
-    color: #FFD700;
 }
 
 #word8 {
-    width: 240rpx;
-    height: 36rpx;
-    position : absolute;
     top : 670rpx;
-    left : 245rpx;
-    color: #FFD700;
 }
 
 #word9 {
-    width: 240rpx;
-    height: 36rpx;
-    position : absolute;
     top : 750rpx;
-    left : 245rpx;
-    color: #FFD700;
 }
 
 #word10 {
-    width: 240rpx;
-    height: 36rpx;
-    position : absolute;
     top : 830rpx;
-    left : 245rpx;
-    color: #FFD700;
 }
 
 #public-cards {
