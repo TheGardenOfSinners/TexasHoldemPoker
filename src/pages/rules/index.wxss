@@ -1,1 +1,236 @@
 /* pages/rules/index.wxss */
+
+Page {
+    background-color: rgb(0,70,55);
+}
+
+.hpoker {
+    width: 48rpx;
+    height: 36rpx;
+    background-color: white;
+    font-size: 35rpx;
+    text-align:center;
+    border: none;
+    position : absolute;
+    top: -5rpx;
+}
+
+.lpoker {
+    width: 48rpx;
+    height: 36rpx;
+    background-color: white;
+    font-size: 39rpx;
+    text-align:center;
+    border: none;
+    position : absolute;
+    top: 29rpx;
+}
+
+.poker {
+    width: 48rpx;
+    height: 72rpx;
+    background-color: white;
+    font-size: 37rpx;
+    border-width : 1rpx;
+    border-color : black;
+    border-style : solid;
+    position : absolute;
+}
+
+#word {
+    width: 3000rpx;
+    height: 40rpx;
+    position : absolute;
+    
+    color: #FFD700;
+}
+
+#word1 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 110rpx;
+    left : 140rpx;
+    color: #FFD700;
+}
+
+#word2 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 190rpx;
+    left : 210rpx;
+    color: #FFD700;
+}
+
+#word3 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 270rpx;
+    left : 245rpx;
+    color: #FFD700;
+}
+
+#word4 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 350rpx;
+    left : 245rpx;
+    color: #FFD700;
+}
+
+#word5 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 430rpx;
+    left : 245rpx;
+    color: #FFD700;
+}
+
+#word6 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 510rpx;
+    left : 245rpx;
+    color: #FFD700;
+}
+
+#word7 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 590rpx;
+    left : 245rpx;
+    color: #FFD700;
+}
+
+#word8 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 670rpx;
+    left : 245rpx;
+    color: #FFD700;
+}
+
+#word9 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 750rpx;
+    left : 245rpx;
+    color: #FFD700;
+}
+
+#word10 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 830rpx;
+    left : 245rpx;
+    color: #FFD700;
+}
+
+#public-cards {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 150rpx;
+    left : 338rpx;
+}
+
+#public-cards1 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 230rpx;
+    left : 338rpx;
+}
+
+#public-cards2 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 310rpx;
+    left : 338rpx;
+}
+
+#public-cards3 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 390rpx;
+    left : 338rpx;
+}
+
+#public-cards4 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 470rpx;
+    left : 338rpx;
+}
+
+#public-cards5 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 550rpx;
+    left : 338rpx;
+}
+
+#public-cards6 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 630rpx;
+    left : 338rpx;
+}
+
+#public-cards7 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 710rpx;
+    left : 338rpx;
+}
+
+#public-cards8 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 790rpx;
+    left : 338rpx;
+}
+
+#public-cards9 {
+    width: 240rpx;
+    height: 36rpx;
+    position : absolute;
+    top : 870rpx;
+    left : 338rpx;
+}
+
+#flop1 {
+    left : 0;
+}
+
+#flop2 {
+    left : 20%;
+}
+
+#flop3 {
+    left : 40%;
+}
+
+#turn {
+    left : 60%;
+}
+
+#river {
+    left : 80%;
+}
