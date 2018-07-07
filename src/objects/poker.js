@@ -180,7 +180,7 @@ var Poker = {
      * 获取在52张牌中的编号
      */
     poker.getNum = function() {
-      return poker.suit * 10 + poker.figure - 1;
+      return poker.suit * 13 + poker.figure - 1;
     }
 
     /**

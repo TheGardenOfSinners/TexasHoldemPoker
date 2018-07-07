@@ -153,6 +153,14 @@ Page({
     for (var i = 0; i < 9; i++) {
       tmpArray2[i] = new Array(" "," ");
     }
+    var tmpArray3 = new Array(5);
+    for(var i = 0; i < 5; i++) {
+      tmpArray3[i] = "poker";
+    }
+    var tmpArray4 = new Array(9);
+    for(var i = 0; i < 9; i++) {
+      tmpArray4[i] = ["poker leftp", "poker rightp"];
+    }
     this.setData({
       selectpagehide: false,
       cardnumplay: tmpArray1,
@@ -161,6 +169,8 @@ Page({
       cardsuitpd: [" ", " ", " ", " ", " "],
       nowChange : -1,
       selectpagehide : true,
+      pokerstylepd :tmpArray3,
+      pokerstyleplay : tmpArray4,
     });
   },
   
@@ -188,9 +198,6 @@ Page({
     }
     var totalTime = 0;
     switch (this.alreadyPublicCard) {
-      case 0:
-        thitalTime = this.counterTimeWhen0(participant, this.publicCardInPage, 0);
-        break;
       case 3:
         thitalTime = this.counterTimeWhen3(participant, this.publicCardInPage, 0);
         break;
@@ -424,7 +431,6 @@ Page({
         this.dealer.popCardByNum(cardNum);
         this.publicCardInPage[tmp].setByNum(cardNum);
         this.alreadyPublicCard++;
-        console.log(this.alreadyPublicCard);
       } else {//把新牌派发之前把旧牌回收
         var num3 = this.publicCardInPage[tmp].getNum();
         this.dealer.recoveryCardByNum(num3);
@@ -445,14 +451,32 @@ Page({
       tmp1[num1][num2] = poker.pokerCanshu.figureNameArrayByNum[cardNum];
       var tmp2 = this.data.cardsuitplay;
       tmp2[num1][num2] = poker.pokerCanshu.suitNameArrayByNum[cardNum];
-      this.setData({ cardnumplay: tmp1, cardsuitplay: tmp2 });
+      var tmp3 = this.data.pokerstyleplay;
+      if (parseInt(cardNum / 13) == 2 || parseInt(cardNum / 13) == 0) {
+        if (num2 == 0)
+          tmp3[num1][num2] = "poker leftp red";
+        else
+          tmp3[num1][num2] = "poker rightp red";
+      } else {
+        if (num2 == 0)
+          tmp3[num1][num2] = "poker leftp";
+        else
+          tmp3[num1][num2] = "poker rightp";
+      }
+      this.setData({ cardnumplay: tmp1, cardsuitplay: tmp2, pokerstyleplay: tmp3});
     } else {
       var tmp = num - 18;
       var tmp1 = this.data.cardnumpd;
       var tmp2 = this.data.cardsuitpd;
       tmp1[tmp] = poker.pokerCanshu.figureNameArrayByNum[cardNum];
       tmp2[tmp] = poker.pokerCanshu.suitNameArrayByNum[cardNum];
-      this.setData({ cardnumpd: tmp1, cardsuitpd: tmp2 });
+      var tmp3 = this.data.pokerstylepd;
+      if (parseInt(cardNum / 13) == 2 || parseInt(cardNum / 13) == 0) {
+        tmp3[tmp] = "poker red";
+      } else {
+        tmp3[tmp] = "poker";
+      }
+      this.setData({ cardnumpd: tmp1, cardsuitpd: tmp2, pokerstylepd: tmp3});
     }
   },
 
@@ -463,7 +487,7 @@ Page({
   cleanACard: function () {
     var numToChange = this.data.nowChange;
     if(numToChange < 18) {
-      var tmp1 = this.data.cardnumplay, num1 = parseInt(num / 2), num2 = num % 2;
+      var tmp1 = this.data.cardnumplay, num1 = parseInt(numToChange / 2), num2 = numToChange % 2;
       tmp1[num1][num2] = " ";
       var tmp2 = this.data.cardsuitplay;
       tmp2[num1][num2] = " ";
@@ -485,8 +509,21 @@ Page({
         var tmpNum = this.publicCardInPage[tmp].getNum();
         this.dealer.recoveryCardByNum(tmpNum);
         this.publicCardInPage[tmp].clearItself();
+        if (tmp == this.alreadyPublicCard - 1) {
+          this.alreadyPublicCard--;
+        }
+        
       }
+      
     }
+    this.setData({ selectpagehide: true });
+  },
+
+  /**
+   * 返回主界面 不做任何选择
+   * 返回的点击事件
+   */
+  goBackToIndex : function() {
     this.setData({ selectpagehide: true });
   },
 
@@ -515,7 +552,7 @@ Page({
         selectpagehide: !this.data.selectpagehide,
         nowChange: tmp,
       });
-    }  
+    }
     
   },
 

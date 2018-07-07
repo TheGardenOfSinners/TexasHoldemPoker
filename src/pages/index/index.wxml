@@ -2,113 +2,113 @@
 <!-- import templates -->
 
        <view id = "public-cards">
-           <view id = "public1" class="poker" bindtap= "playCardevent">
+           <view id = "public1" class="{{pokerstylepd[0]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnumpd[0]}}</view>
              <view class="lpoker">{{cardsuitpd[0]}}</view>
            </view>
-           <view id="public2" class="poker" bindtap= "playCardevent">
+           <view id="public2" class="{{pokerstylepd[1]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnumpd[1]}}</view>
              <view class="lpoker">{{cardsuitpd[1]}}</view>
            </view>
-           <view id="public3" class="poker" bindtap= "playCardevent">
+           <view id="public3" class="{{pokerstylepd[2]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnumpd[2]}}</view>
              <view class="lpoker">{{cardsuitpd[2]}}</view>
            </view>
-           <view id="public4" class="poker" bindtap= "playCardevent">
+           <view id="public4" class="{{pokerstylepd[3]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnumpd[3]}}</view>
              <view class="lpoker">{{cardsuitpd[3]}}</view>
            </view>
-           <view id="public5" class="poker" bindtap= "playCardevent">
+           <view id="public5" class="{{pokerstylepd[4]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnumpd[4]}}</view>
              <view class="lpoker">{{cardsuitpd[4]}}</view>
            </view>
        </view>
        <view id="p1" class="player">
-           <view id="p11" class="poker leftp" bindtap= "playCardevent">
+           <view id="p11" class="{{pokerstyleplay[0][0]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnumplay[0][0]}}</view>
              <view class="lpoker">{{cardsuitplay[0][0]}}</view>
            </view>
-           <view id="p12" class="poker rightp" bindtap= "playCardevent">
+           <view id="p12" class="{{pokerstyleplay[0][1]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnumplay[0][1]}}</view>
              <view class="lpoker">{{cardsuitplay[0][1]}}</view>
            </view>
        </view>
         <view id="p2" class="player">
-            <view id="p21" class="poker leftp" bindtap= "playCardevent">
+            <view id="p21" class="{{pokerstyleplay[1][0]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnumplay[1][0]}}</view>
              <view class="lpoker">{{cardsuitplay[1][0]}}</view>
            </view>
-            <view id="p22" class="poker rightp" bindtap= "playCardevent">
+            <view id="p22" class="{{pokerstyleplay[1][1]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnumplay[1][1]}}</view>
              <view class="lpoker">{{cardsuitplay[1][1]}}</view>
            </view>
         </view>
         <view id="p3" class="player">
-            <view id="p31" class="poker leftp" bindtap= "playCardevent">
+            <view id="p31" class="{{pokerstyleplay[2][0]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[2][0]}}</view>
              <view class="lpoker">{{cardsuit[2][0]}}</view>
            </view>
-            <view id="p32" class="poker rightp" bindtap= "playCardevent">
+            <view id="p32" class="{{pokerstyleplay[2][1]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[2][1]}}</view>
              <view class="lpoker">{{cardsuit[2][1]}}</view>
            </view>
         </view>
         <view id="p4" class="player">
-            <view id="p41" class="poker leftp" bindtap= "playCardevent">
+            <view id="p41" class="{{pokerstyleplay[3][0]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[3][0]}}</view>
              <view class="lpoker">{{cardsuit[3][0]}}</view>
            </view>
-            <view id="p42" class="poker rightp" bindtap= "playCardevent">
+            <view id="p42" class="{{pokerstyleplay[3][1]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[3][1]}}</view>
              <view class="lpoker">{{cardsuit[3][1]}}</view>
            </view>
         </view>
         <view id="p5" class="player">
-            <view id="p51" class="poker leftp" bindtap= "playCardevent">
+            <view id="p51" class="{{pokerstyleplay[4][0]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[4][0]}}</view>
              <view class="lpoker">{{cardsuit[4][0]}}</view>
            </view>
-            <view id="p52" class="poker rightp" bindtap= "playCardevent">
+            <view id="p52" class="{{pokerstyleplay[4][1]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[4][1]}}</view>
              <view class="lpoker">{{cardsuit[4][1]}}</view>
            </view>
         </view>
         <view id="p6" class="player">
-            <view id="p61" class="poker leftp" bindtap= "playCardevent">
+            <view id="p61" class="{{pokerstyleplay[5][0]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[5][0]}}</view>
              <view class="lpoker">{{cardsuit[5][0]}}</view>
            </view>
-            <view id="p62" class="poker rightp" bindtap= "playCardevent">
+            <view id="p62" class="{{pokerstyleplay[5][1]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[5][1]}}</view>
              <view class="lpoker">{{cardsuit[5][1]}}</view>
            </view>
         </view>
         <view id="p7" class="player">
-            <view id="p71" class="poker leftp" bindtap= "playCardevent">
+            <view id="p71" class="{{pokerstyleplay[6][0]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[6][0]}}</view>
              <view class="lpoker">{{cardsuit[6][0]}}</view>
            </view>
-            <view id="p72" class="poker rightp" bindtap= "playCardevent">
+            <view id="p72" class="{{pokerstyleplay[6][1]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[6][1]}}</view>
              <view class="lpoker">{{cardsuit[6][1]}}</view>
            </view>
         </view>
         <view id="p8" class="player">
-            <view id="p81" class="poker leftp" bindtap= "playCardevent">
+            <view id="p81" class="{{pokerstyleplay[7][0]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[7][0]}}</view>
              <view class="lpoker">{{cardsuit[7][0]}}</view>
            </view>
-            <view id="p82" class="poker rightp" bindtap= "playCardevent">
+            <view id="p82" class="{{pokerstyleplay[7][1]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[7][1]}}</view>
              <view class="lpoker">{{cardsuit[7][1]}}</view>
            </view>
         </view>
         <view id="p9" class="player">
-            <view id="p91" class="poker leftp" bindtap= "playCardevent">
+            <view id="p91" class="{{pokerstyleplay[8][0]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[8][0]}}</view>
              <view class="lpoker">{{cardsuit[8][0]}}</view>
            </view>
-            <view id="p92" class="poker rightp" bindtap= "playCardevent">
+            <view id="p92" class="{{pokerstyleplay[8][1]}}" bindtap= "playCardevent">
              <view class="hpoker">{{cardnum[8][1]}}</view>
              <view class="lpoker">{{cardsuit[8][1]}}</view>
            </view>

@@ -1,6 +1,6 @@
 page {
   background-color: rgb(0,70,55);
-  font-family: ”微软雅黑”;
+  font-family: "微软雅黑";
 }
 
 #selectpage {
@@ -10,7 +10,6 @@ page {
   position : absolute;
   top : 0rpx;
   left : 0rpx;
-  transition : all, 1s;
 }
 
 #public-cards {
@@ -49,7 +48,6 @@ page {
     border-color : black;
     border-style : solid;
     position : absolute;
-    transition : all, 1s;
 }
 
 .red {
@@ -124,6 +122,24 @@ page {
 
 #selectorContainer4 {
     top: 80%;
+}
+
+#zhikong {
+    height: 100rpx;
+    width: 150rpx;
+    left: 150rpx;
+    top: 60rpx;
+    position: absolute;
+    background-color: royalblue;
+}
+
+#fanhui {
+    height: 100rpx;
+    width: 250rpx;
+    left: 450rpx;
+    top: 60rpx;
+    position: absolute;
+    background-color: royalblue;
 }
 
 
