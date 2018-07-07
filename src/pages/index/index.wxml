@@ -155,15 +155,6 @@
           随机发牌
         </view>
 
-        <view id="billboard" hidden="{{billboardHidden}}" bindtap="billboardClick">
-          <text id="neirong">
-            {{billBoardText}}
-          </text>
-          <text id="wenzi">
-            点击此处继续
-          </text>
-        </view>
-
         <view hidden="{{selectpagehide}}" id="selectpage">
           <view id="selectorContainer0" class="container">
             <view id="select0" class="Card1 poker red" bindtap="selector">

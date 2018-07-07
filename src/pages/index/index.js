@@ -167,8 +167,6 @@ Page({
       cardnumpd: [" ", " ", " ", " ", " "],
       cardsuitpd: [" ", " ", " ", " ", " "],
       nowChange : -1,
-      billboardHidden: true,
-      billBoardText: " ",
       calculateHidden: true,
       selectpagehide : true,
       pokerstylepd :tmpArray3,
@@ -695,10 +693,6 @@ Page({
   clearAll : function() {
     this.initialData();
     this.initialObject();
-    this.setData({
-      billboardHidden: false,
-      billBoardText: "已清空",
-    });
   },
 
   /**
@@ -713,6 +707,12 @@ Page({
         this.publicCardInPage[i].setByNum(tmpNum);
         tmpArray2[i] = poker.pokerCanshu.suitNameArrayByNum[tmpNum];
         tmpArray1[i] = poker.pokerCanshu.figureNameArrayByNum[tmpNum];
+        var tmp3 = this.data.pokerstylepd;
+        if (parseInt(tmpNum / 13) == 2 || parseInt(tmpNum / 13) == 0) {
+          tmp3[i] = "poker red";
+        } else {
+          tmp3[i] = "poker";
+        }
       }
       this.setData({
         cardnumpd: tmpArray1,
@@ -720,6 +720,7 @@ Page({
         winRateForPlayers: [
           "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%"
         ],
+        pokerstylepd: tmp3,
       });
       this.alreadyPublicCard = 3;
     } else if (this.alreadyPublicCard == 3) {
@@ -727,12 +728,19 @@ Page({
       this.publicCardInPage[3].setByNum(tmpNum);
       tmpArray2[3] = poker.pokerCanshu.suitNameArrayByNum[tmpNum];
       tmpArray1[3] = poker.pokerCanshu.figureNameArrayByNum[tmpNum];
+      var tmp3 = this.data.pokerstylepd;
+      if (parseInt(tmpNum / 13) == 2 || parseInt(tmpNum / 13) == 0) {
+        tmp3[3] = "poker red";
+      } else {
+        tmp3[3] = "poker";
+      }
       this.setData({
         cardnumpd: tmpArray1,
         cardsuitpd: tmpArray2,
         winRateForPlayers: [
           "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%"
         ],
+        pokerstylepd: tmp3,
       });
       this.alreadyPublicCard = 4;
     } else if (this.alreadyPublicCard == 4) {
@@ -740,26 +748,24 @@ Page({
       this.publicCardInPage[4].setByNum(tmpNum);
       tmpArray2[4] = poker.pokerCanshu.suitNameArrayByNum[tmpNum];
       tmpArray1[4] = poker.pokerCanshu.figureNameArrayByNum[tmpNum];
+      var tmp3 = this.data.pokerstylepd;
+      if (parseInt(tmpNum / 13) == 2 || parseInt(tmpNum / 13) == 0) {
+        tmp3[4] = "poker red";
+      } else {
+        tmp3[4] = "poker";
+      }
       this.setData({
         cardnumpd: tmpArray1,
         cardsuitpd: tmpArray2,
         winRateForPlayers: [
           "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%"
         ],
+        pokerstylepd: tmp3,
       });
       this.alreadyPublicCard = 5;
     }
     this.canRandom();
     this.readyToCalculate();
-  },
-  
-  /**
-   * 公告牌点击事件
-   */
-  billboardClick: function() {
-    this.setData({
-      billboardHidden: true,
-    });
   },
   
   /**
