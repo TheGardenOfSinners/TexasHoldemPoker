@@ -1,12 +1,12 @@
 page {
-  background-color: rgb(0,70,55);
+  background-color: #266d4d;
   font-family: "微软雅黑";
 }
 
 #selectpage {
   width: 750rpx;
   height: 1050rpx;
-  background-color: rgb(0,70,55);
+  background-color: #266d4d;
   position : absolute;
   top : 0rpx;
   left : 0rpx;
@@ -17,27 +17,40 @@ page {
     height: 96rpx;
     position : absolute;
     top : 438rpx;
-    left : 338rpx;
+    left : 220rpx;
 }
 
 .hpoker {
-    width: 64rpx;
-    height: 48rpx;
-    font-size: 44rpx;
-    text-align:center;
+    width: 24rpx;
+    height: 18rpx;
+    font-weight: bold;
+    font-size: 30rpx;
     border: none;
     position : absolute;
-    top: -7rpx;
+    top: -5rpx;
+    left: 5rpx;
 }
 
 .lpoker {
-    width: 64rpx;
-    height: 48rpx;
-    font-size: 52rpx;
-    text-align:center;
+    width: 24rpx;
+    height: 18rpx;
+    font-size: 25rpx;
     border: none;
     position : absolute;
-    top: 41rpx;
+    top: 30rpx;
+    left: 15rpx;
+}
+
+.poker {
+    width: 48rpx;
+    height: 72rpx;
+    background-color: white;
+    font-size: 37rpx;
+    border-radius: 10%;
+    border-width : 1rpx;
+    border-color : black;
+    border-style : solid;
+    position :  absolute;
 }
 
 .winRate {
@@ -48,16 +61,6 @@ page {
   font-size: 35rpx;
   top:96rpx;
   left: 0;
-}
-
-.poker {
-    width: 64rpx;
-    height: 96rpx;
-    background-color: white;
-    border-width : 1rpx;
-    border-color : black;
-    border-style : solid;
-    position : absolute;
 }
 
 .red {
@@ -71,20 +74,47 @@ page {
 }
 
 #p1 {
- 
-  top : 298rpx;
-  left : 553rpx;
+  top : 30rpx;
+  left : 430rpx;
 }
 
 #p2 {
-  top : 298rpx;
-  left : 338rpx;
+  top : 250rpx;
+  left : 600rpx;
 }
 
 #p3 {
-  top : 298rpx;
-  left : 150rpx;
+  top : 470rpx;
+  left : 600rpx;
 }
+
+#p4 {
+  top : 690rpx;
+  left : 600rpx;
+}
+#p5 {
+  top : 910rpx;
+  left : 315rpx;
+}
+
+#p6 {
+  top : 250rpx;
+  left : 30rpx;
+}
+
+#p7 {
+  top : 470rpx;
+  left : 30rpx;
+}
+#p8 {
+  top : 690rpx;
+  left : 30rpx;
+}
+#p9 {
+  top : 30rpx;
+  left : 200rpx;
+}
+
 
 .rightp {
   left: 64rpx;
@@ -140,43 +170,60 @@ page {
 }
 
 #zhikong {
-    height: 100rpx;
-    width: 150rpx;
+
     left: 150rpx;
     top: 60rpx;
+    color: white;
+    padding-top: 6rpx;
+    padding-left: 10rpx;
+    padding-right: 15rpx;
+    font-size: 35rpx;
+    height: 50rpx;
+    border-radius: 25rpx;
+    background-color: #25cb7e;
     position: absolute;
-    background-color: royalblue;
 }
 
 #fanhui {
-    height: 100rpx;
-    width: 250rpx;
     left: 450rpx;
     top: 60rpx;
+    color: white;
+    padding-top: 6rpx;
+    padding-left: 10rpx;
+    padding-right: 15rpx;
+    font-size: 35rpx;
+    height: 50rpx;
+    border-radius: 25rpx;
+    background-color: #25cb7e;
     position: absolute;
-    background-color: royalblue;
 }
 
 .button {
+    color: white;
+    padding-top: 6rpx;
+    padding-left: 10rpx;
+    padding-right: 15rpx;
+    font-size: 35rpx;
     height: 50rpx;
-    width: 75rpx;
-    background-color: royalblue;
+    border-radius: 25rpx;
+    background-color: #25cb7e;
     position: absolute;
 }
 
 #clearAll {
+
     top : 598rpx;
-    left : 338rpx;
+    left : 430rpx;
 }
 
 #calculate {
     top : 598rpx;
-    left : 238rpx;
+    left : 240rpx;
 }
 
 #randomcard {
    top: 700rpx;
-   left: 350rpx;
+   left: 300rpx;
 }
 
 #billboard {

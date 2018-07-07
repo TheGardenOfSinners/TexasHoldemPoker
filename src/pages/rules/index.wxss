@@ -1,7 +1,7 @@
 /* pages/rules/index.wxss */
 
 Page {
-    background-color: rgb(0,70,55);
+    background-color: #266d4d;
     font-family: ”微软雅黑”;
 }
 
@@ -10,23 +10,24 @@ Page {
 }
 
 .hpoker {
-    width: 48rpx;
-    height: 36rpx;
-    font-size: 35rpx;
-    text-align:center;
+    width: 12rpx;
+    height: 18rpx;
+    font-size: 30rpx;
     border: none;
     position : absolute;
+    font-weight: bold;
     top: -5rpx;
+    left: 5rpx;
 }
 
 .lpoker {
-    width: 48rpx;
-    height: 36rpx;
-    font-size: 39rpx;
-    text-align:center;
+    width: 24rpx;
+    height: 18rpx;
+    font-size: 25rpx;
     border: none;
     position : absolute;
-    top: 31rpx;
+    top: 30rpx;
+    left: 15rpx;
 }
 
 .poker {
@@ -34,31 +35,34 @@ Page {
     height: 72rpx;
     background-color: white;
     font-size: 37rpx;
+    border-radius: 10%;
     border-width : 1rpx;
     border-color : black;
     border-style : solid;
-    position : absolute;
+    position :  absolute;
 }
 
 .word {
   width: 240rpx;
   height: 36rpx;
-  left : 100rpx;
+  left : 400rpx;
   position: absolute;
-  color: #FFD700;
-  text-align:right;
+  color: #FFF8DC;
+  text-align: left;
 }
 
 #word {
-    width: 3000rpx;
-    height: 40rpx;
-    position : absolute;
-    
-    color: #FFD700;
+    width: 240rpx;
+    height: 36rpx;
+    text-align: left;
+    position: absolute;
+    left: 100rpx;
+    color: #FFF8DC;
 }
 
 #word1 {
     top : 110rpx;
+    right: -100rpx;
 }
 
 #word2 {
@@ -98,83 +102,83 @@ Page {
 }
 
 #public-cards {
-    width: 240rpx;
+    width: 270rpx;
     height: 36rpx;
     position : absolute;
     top : 150rpx;
-    left : 338rpx;
+    left : 100rpx;
 }
 
 #public-cards1 {
-    width: 240rpx;
+    width: 270rpx;
     height: 36rpx;
     position : absolute;
     top : 230rpx;
-    left : 338rpx;
+    left : 100rpx;
 }
 
 #public-cards2 {
-    width: 240rpx;
+    width: 270rpx;
     height: 36rpx;
     position : absolute;
     top : 310rpx;
-    left : 338rpx;
+    left : 100rpx;
 }
 
 #public-cards3 {
-    width: 240rpx;
+    width: 270rpx;
     height: 36rpx;
     position : absolute;
     top : 390rpx;
-    left : 338rpx;
+    left : 100rpx;
 }
 
 #public-cards4 {
-    width: 240rpx;
+    width: 270rpx;
     height: 36rpx;
     position : absolute;
     top : 470rpx;
-    left : 338rpx;
+    left : 100rpx;
 }
 
 #public-cards5 {
-    width: 240rpx;
+    width: 270rpx;
     height: 36rpx;
     position : absolute;
     top : 550rpx;
-    left : 338rpx;
+    left : 100rpx;
 }
 
 #public-cards6 {
-    width: 240rpx;
+    width: 270rpx;
     height: 36rpx;
     position : absolute;
     top : 630rpx;
-    left : 338rpx;
+    left : 100rpx;
 }
 
 #public-cards7 {
-    width: 240rpx;
+    width: 270rpx;
     height: 36rpx;
     position : absolute;
     top : 710rpx;
-    left : 338rpx;
+    left : 100rpx;
 }
 
 #public-cards8 {
-    width: 240rpx;
+    width: 270rpx;
     height: 36rpx;
     position : absolute;
     top : 790rpx;
-    left : 338rpx;
+    left : 100rpx;
 }
 
 #public-cards9 {
-    width: 240rpx;
+    width: 270rpx;
     height: 36rpx;
     position : absolute;
     top : 870rpx;
-    left : 338rpx;
+    left : 100rpx;
 }
 
 #flop1 {
