@@ -162,15 +162,21 @@ Page({
       tmpArray4[i] = ["poker leftp", "poker rightp"];
     }
     this.setData({
-      selectpagehide: false,
       cardnumplay: tmpArray1,
       cardsuitplay: tmpArray2,
       cardnumpd: [" ", " ", " ", " ", " "],
       cardsuitpd: [" ", " ", " ", " ", " "],
       nowChange : -1,
+      billboardHidden: true,
+      billBoardText: " ",
+      calculateHidden: true,
       selectpagehide : true,
       pokerstylepd :tmpArray3,
       pokerstyleplay : tmpArray4,
+      winRateForPlayers: [
+        "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%"
+      ],
+      randomcard: false,
     });
   },
   
@@ -184,6 +190,7 @@ Page({
       if(i < 5)
         this.publicCardInPage[i] = poker.Poker.createNew();
     }
+    this.alreadyPublicCard = 0;
   },
   
   /**
@@ -192,25 +199,40 @@ Page({
   calculateAllPlayerRate: function() {
     var participant = new Array();
     for(var i = 0; i < 9; i++) {
-      allPlayerArray[i].refleshWinCount();
-      if (allPlayerArray[i].isReady)
+      this.allPlayerArray[i].refleshWinCount();
+      if (this.allPlayerArray[i].isReady)
         participant.push(i);
     }
     var totalTime = 0;
     switch (this.alreadyPublicCard) {
       case 3:
-        thitalTime = this.counterTimeWhen3(participant, this.publicCardInPage, 0);
+        this.showLoading();
+        totalTime = this.counterTimeWhen3(participant, this.publicCardInPage, 0);
+        this.cancelLoading();
         break;
       case 4:
-        thitalTime = this.counterTimeWhen4(participant, this.publicCardInPage, 0);
+        this.showLoading();
+        totalTime = this.counterTimeWhen4(participant, this.publicCardInPage, 0);
+        this.cancelLoading();
         break;
       case 5:
-        thitalTime = this.counterTimeWhen5(participant, this.publicCardInPage, 0);
+        this.showLoading();
+        totalTime = this.counterTimeWhen5(participant, this.publicCardInPage, 0);
+        this.cancelLoading();
         break;
       default:
         ;
     }
-
+    var winRateArray = new Array(9);
+    for(var i = 0; i < 9; i++) {
+      var tmpRate = this.allPlayerArray[i].getWinCount() / totalTime;
+      this.allPlayerArray[i].setWinRate(tmpRate);
+      var tmpRate1 = tmpRate * 100;
+      winRateArray[i] = tmpRate1.toFixed(2) + "%";
+    }
+    this.setData({
+      winRateForPlayers: winRateArray,
+    });
   },
 
   /**
@@ -262,6 +284,7 @@ Page({
     }
     return total;
   },
+
 
   /**
    * 一张公共牌时的计数器
@@ -396,12 +419,13 @@ Page({
       if (tmpList.isBiggerThan(nowPokerList) >= 0) {
         if (tmpList.isBiggerThan(nowPokerList) == 1) {
           winArray = new Array();
+          nowPokerList = tmpList;
         }
         winArray.push(participant[i]);
       }
-      for(var i = 0; i < winArray.length; i++) {
-        this.allPlayerArray[winArray[i]].oneMoreWin();
-      }
+    }
+    for (var j = 0; j < winArray.length; j++) {
+      this.allPlayerArray[winArray[j]].oneMoreWin();
     }
     countTotal++;
     return countTotal;
@@ -430,7 +454,13 @@ Page({
       if (this.publicCardInPage[tmp].isEmpty()) {
         this.dealer.popCardByNum(cardNum);
         this.publicCardInPage[tmp].setByNum(cardNum);
-        this.alreadyPublicCard++;
+        var i = 4
+        for(i = 4; i >= 0;i--) {
+          if(!this.publicCardInPage[i].isEmpty())
+            break;
+        }
+        this.alreadyPublicCard = i+1;
+        console.log(this.alreadyPublicCard);
       } else {//把新牌派发之前把旧牌回收
         var num3 = this.publicCardInPage[tmp].getNum();
         this.dealer.recoveryCardByNum(num3);
@@ -438,6 +468,8 @@ Page({
         this.publicCardInPage[tmp].setByNum(cardNum);
       }
     }
+    this.readyToCalculate();
+    this.canRandom();
   },
 
 
@@ -510,13 +542,25 @@ Page({
         this.dealer.recoveryCardByNum(tmpNum);
         this.publicCardInPage[tmp].clearItself();
         if (tmp == this.alreadyPublicCard - 1) {
-          this.alreadyPublicCard--;
+          var i = 4
+          for (i = 4; i >= 0; i--) {
+            if (!this.publicCardInPage[i].isEmpty())
+              break;
+          }
+          this.alreadyPublicCard = i + 1;
         }
         
       }
       
     }
-    this.setData({ selectpagehide: true });
+    this.setData({
+      selectpagehide: true,
+      winRateForPlayers: [
+        "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%"
+      ],
+    });
+    this.readyToCalculate();
+    this.canRandom();
   },
 
   /**
@@ -525,6 +569,8 @@ Page({
    */
   goBackToIndex : function() {
     this.setData({ selectpagehide: true });
+    this.readyToCalculate();
+    this.canRandom();
   },
 
   /**
@@ -537,7 +583,12 @@ Page({
       var numToChange = this.data.nowChange;
       this.changeCardShow(numToChange, tmp);
       this.changeCardObject(numToChange, tmp);
-      this.setData({ selectpagehide: true });
+      this.setData({
+        selectpagehide: true,
+        winRateForPlayers: [
+          "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%"
+        ],
+      });
     }
   },
 
@@ -572,6 +623,162 @@ Page({
       return (tmp1-1) * 2 + tmp2 - 1;
     }
   },
+
+  /**
+   * 判断是否弹出计算选项
+   */
+  readyToCalculate : function() {
+    var pdNum = this.alreadyPublicCard;
+    if(pdNum >= 3) {
+      for(var i = 0; i < pdNum;i++) {
+        if (this.publicCardInPage[i].isEmpty()) {
+          this.setData({calculateHidden: true,});
+          return;
+        }
+      }
+    } else {
+      this.setData({ calculateHidden: true, });
+      return;
+    }
+    for(var i = 0; i < 9; i++) {
+      if (this.allPlayerArray[i].isOnlyOne()) {
+        this.setData({ calculateHidden: true, });
+        return;
+      }
+    }
+    var num = 0;
+    for(var i = 0;i < 9; i++) {
+      if (this.allPlayerArray[i].isReady)
+        num++;
+    }
+    if(num < 2) {
+      this.setData({ calculateHidden: true, });
+      return;
+    }
+    this.setData({ calculateHidden: false, });
+  },
+
+  /**
+   * 判断是否开启随机发牌功能
+   */
+  canRandom: function() {
+    var pdNum = this.alreadyPublicCard;
+    if (pdNum < 5) {
+      if(pdNum == 1 || pdNum == 2) {
+        this.setData({ randomcard: true, });
+        return;
+      }
+      for (var i = 0; i < pdNum; i++) {
+        if (this.publicCardInPage[i].isEmpty()) {
+          this.setData({ randomcard : true, });
+          return;
+        }
+      }
+    } else {
+      this.setData({ randomcard: true, });
+      return;
+    }
+    for (var i = 0; i < 9; i++) {
+      if (this.allPlayerArray[i].isOnlyOne()) {
+        this.setData({ randomcard: true, });
+        return;
+      }
+    }
+    this.setData({ randomcard:false, });
+    return;
+  },
+
+  /**
+   * 清空数据
+   * 清空按钮的点击事件
+   */
+  clearAll : function() {
+    this.initialData();
+    this.initialObject();
+    this.setData({
+      billboardHidden: false,
+      billBoardText: "已清空",
+    });
+  },
+
+  /**
+   * 随机发牌点击事件
+   */
+  randomNext: function() {
+    var tmpArray1 = this.data.cardnumpd;
+    var tmpArray2 = this.data.cardsuitpd;
+    if (this.alreadyPublicCard == 0) {
+      for(var i = 0; i < 3; i++) {
+        var tmpNum = this.dealer.randomPopCard();
+        this.publicCardInPage[i].setByNum(tmpNum);
+        tmpArray2[i] = poker.pokerCanshu.suitNameArrayByNum[tmpNum];
+        tmpArray1[i] = poker.pokerCanshu.figureNameArrayByNum[tmpNum];
+      }
+      this.setData({
+        cardnumpd: tmpArray1,
+        cardsuitpd: tmpArray2,
+        winRateForPlayers: [
+          "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%"
+        ],
+      });
+      this.alreadyPublicCard = 3;
+    } else if (this.alreadyPublicCard == 3) {
+      var tmpNum = this.dealer.randomPopCard();
+      this.publicCardInPage[3].setByNum(tmpNum);
+      tmpArray2[3] = poker.pokerCanshu.suitNameArrayByNum[tmpNum];
+      tmpArray1[3] = poker.pokerCanshu.figureNameArrayByNum[tmpNum];
+      this.setData({
+        cardnumpd: tmpArray1,
+        cardsuitpd: tmpArray2,
+        winRateForPlayers: [
+          "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%"
+        ],
+      });
+      this.alreadyPublicCard = 4;
+    } else if (this.alreadyPublicCard == 4) {
+      var tmpNum = this.dealer.randomPopCard();
+      this.publicCardInPage[4].setByNum(tmpNum);
+      tmpArray2[4] = poker.pokerCanshu.suitNameArrayByNum[tmpNum];
+      tmpArray1[4] = poker.pokerCanshu.figureNameArrayByNum[tmpNum];
+      this.setData({
+        cardnumpd: tmpArray1,
+        cardsuitpd: tmpArray2,
+        winRateForPlayers: [
+          "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%", "0.00%"
+        ],
+      });
+      this.alreadyPublicCard = 5;
+    }
+    this.canRandom();
+    this.readyToCalculate();
+  },
+  
+  /**
+   * 公告牌点击事件
+   */
+  billboardClick: function() {
+    this.setData({
+      billboardHidden: true,
+    });
+  },
+  
+  /**
+   * 出线loading标签
+   */
+  showLoading: function () {
+    wx.showToast({
+      title: '计算中',
+      icon: 'loading',
+      duration: 20000
+    });
+  },
+
+  /**
+   * 隐藏loading标签
+   */
+  cancelLoading: function () {
+    wx.hideToast();
+  }
 
 
 })

@@ -40,6 +40,16 @@ page {
     top: 41rpx;
 }
 
+.winRate {
+  width: 128rpx;
+  height: 40rpx;
+  text-align: right;
+  position: absolute;
+  font-size: 35rpx;
+  top:96rpx;
+  left: 0;
+}
+
 .poker {
     width: 64rpx;
     height: 96rpx;
@@ -56,19 +66,24 @@ page {
 
 .player {
   width: 128rpx;
-  height: 96rpx;
+  height: 136rpx;
   position : absolute;
 }
 
 #p1 {
  
-  top : 338rpx;
+  top : 298rpx;
   left : 553rpx;
 }
 
 #p2 {
-  top : 338rpx;
+  top : 298rpx;
   left : 338rpx;
+}
+
+#p3 {
+  top : 298rpx;
+  left : 150rpx;
 }
 
 .rightp {
@@ -142,7 +157,36 @@ page {
     background-color: royalblue;
 }
 
+.button {
+    height: 50rpx;
+    width: 75rpx;
+    background-color: royalblue;
+    position: absolute;
+}
 
+#clearAll {
+    top : 598rpx;
+    left : 338rpx;
+}
+
+#calculate {
+    top : 598rpx;
+    left : 238rpx;
+}
+
+#randomcard {
+   top: 700rpx;
+   left: 350rpx;
+}
+
+#billboard {
+    height: 350rpx;
+    width: 450rpx;
+    position: absolute;
+    background-color: royalblue;
+    top : 250rpx;
+    left : 150rpx;
+}
 
 
 

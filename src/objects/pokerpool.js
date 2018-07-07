@@ -74,7 +74,7 @@ var PokerPool = {
       pokerPool.popCardByNum(tmp);
       var suit1 = Math.floor(tmp/13);
       var figure1 = tmp % 13 + 1;
-      return [suit1, figure1];
+      return tmp;
     }
 
     /**

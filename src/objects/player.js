@@ -107,6 +107,17 @@ var Player = {
     }
 
     /**
+     * 是否只有一张牌
+     */
+    player.isOnlyOne = function() {
+      if (!player.hand1.isEmpty() && player.hand2.isEmpty())
+        return true;
+      if (player.hand1.isEmpty() && !player.hand2.isEmpty())
+        return true;
+      return false;
+    }
+
+    /**
      * 清空所有参数
      */
     player.clearAllFeature = function() {
